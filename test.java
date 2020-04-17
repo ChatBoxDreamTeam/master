@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-testqizdbbq
-=======
-Autre chose que master
->>>>>>> testing
+rien et fuck
