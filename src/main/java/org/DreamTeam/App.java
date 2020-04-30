@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 /**
  * JavaFX App
+ *
+ * <p>pour l'utilisation des tags de javaDocs, liens pour les tags : <a href="https://idratherbewriting.com/java-javadoc-tags/">ici</a></p>
+ *
  */
 public class App extends Application {
 
