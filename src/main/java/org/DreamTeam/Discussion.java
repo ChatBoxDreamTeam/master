@@ -5,5 +5,6 @@ import java.util.ArrayList;
 public class Discussion {
 
     String titre;
-    ArrayList membres;
+    ArrayList<Utilisateur> membres;
+    ArrayList<Message> messages;
 }
