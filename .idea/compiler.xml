@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="master" />
+        <module name="ChatBox_DT" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="master" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
