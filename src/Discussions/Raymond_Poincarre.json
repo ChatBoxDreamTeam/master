@@ -1,0 +1,49 @@
+{
+    "pseudo": "Raymond Poincarré",
+    "password" : "republique",
+    "couleurChat" : "green",
+    "messages" : [
+        {
+            "id" : 1,
+            "date":"2020-05-08",
+            "author":"Raymond Poincarré",
+            "content":"Vous me prenez sereinement pour un fou."
+        },
+        {
+            "id": 2,
+            "date":"2020-05-08",
+            "author":"Raymond Poincarré",
+            "content":"Comment ça, je n'aime pas la république. Qui vous fait croire cela ?"
+        },
+        {
+            "id":3,
+            "date":"2020-05-08",
+            "author":"Patrice de Mac-Mahon",
+            "content":"Je discutais avec Sadi. Nous étions surpris, voire choqués, par vos propos dans Libération"
+        },
+        {
+            "id":4,
+            "date":"2020-05-08",
+            "author":"Raymond Poincarré",
+            "content":"Voyons donc. Il a réussi à en tirer que je n'aimais pas la république ? Alors que j'étais président ? A-t-il perdu la tête ?"
+        },
+        {
+            "id":5,
+            "date":"2020-05-08",
+            "author":"Patrice de Mac-Mahon",
+            "content":"Expliquez-lui. Expliquez-nous, pensez vous ces propos ?"
+        },
+        {
+            "id":6,
+            "date":"2020-05-08",
+            "author":"Raymond Poincarré",
+            "content":"Écoutez, prenons rendez-vous afin d'en discuter plus sereinement."
+        },
+        {
+            "id":7,
+            "date":"2020-05-08",
+            "author":"Patrice de Mac-Mahon",
+            "content":"Faisons ainsi. Je ramènerai Sadi avec moi."
+        }
+    ]
+}
