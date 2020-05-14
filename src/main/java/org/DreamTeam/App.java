@@ -1,6 +1,7 @@
 package org.DreamTeam;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -23,9 +24,16 @@ public class App extends Application {
         Group root = new Group();
         var scene = new Scene(root, 640, 480);
 
-        root.getChildren().add(new InterfaceComplete(scene.getHeight(),scene.getWidth()));
+        InterfaceComplete interfaceC = new InterfaceComplete(scene.getHeight(), scene.getWidth());
+        root.getChildren().add(interfaceC);
+
         stage.setScene(scene);
         stage.show();
+
+        ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) ->
+                interfaceC.changeSize(stage.getHeight(), stage.getWidth());
+        stage.widthProperty().addListener(stageSizeListener);
+        stage.heightProperty().addListener(stageSizeListener);
     }
 
     public static void main(String[] args) {
