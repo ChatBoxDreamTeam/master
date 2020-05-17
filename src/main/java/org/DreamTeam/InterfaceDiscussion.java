@@ -4,7 +4,12 @@ import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+
 public class InterfaceDiscussion extends Parent {
+
+    ArrayList<Discussion> ListeDiscussion;
+
 
     /**
      * Ce rectangle représente la partie droite avec les messages
