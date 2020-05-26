@@ -2,6 +2,13 @@ package org.DreamTeam;
 
 import java.util.Comparator;
 
+/**
+ * <h1 color="8A5597">Contact</h1>
+ * permet la création de contacts dans la liste, aini que leur gestion
+ * @author Mathieu
+ * @version 1.0
+ * @see ListContact
+ */
 public class Contact {
 
     private String firstName;
