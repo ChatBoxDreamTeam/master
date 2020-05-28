@@ -1,6 +1,10 @@
 package org.DreamTeam;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.*;
 
 /**
  * <h1>Utilisateur</h1>
@@ -17,11 +21,22 @@ public class Utilisateur {
 
     public String pseudo;
     public String couleurChat;
-    public String password;
-    public ArrayList<Message> messages;
 
     public Utilisateur() {
     }
+
+    public Utilisateur(String pseudo) {
+        this.pseudo = pseudo;
+        this.couleurChat = "49AA31";
+    }
+
+    public Utilisateur(String pseudo, String color) {
+        this.pseudo = pseudo;
+        if(isValidHexaCode(color)) this.couleurChat = color;
+        else this.couleurChat = "49AA31";
+    }
+
+
 
     /**
      * <h2>getPseudo</h2>
@@ -55,45 +70,47 @@ public class Utilisateur {
         this.couleurChat = couleurChat;
     }
 
-    /**
-     * <h2>getPassword</h2>
-     * @return le mot de passe de l'utilisateur
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * <h2>setPassword</h2>
-     * @param password mot de passe de l'utilisateur
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * <h2>getMessages</h2>
-     * @return la liste des messages de l'utilisateur
-     */
-    public ArrayList<Message> getMessages() {
-        return messages;
-    }
-
-    /**
-     * <h2>setMessages</h2>
-     * @param messages de l'utilisateur
-     */
-    public void setMessages(ArrayList<Message> messages) {
-        this.messages = messages;
-    }
-
     @Override
     public String toString() {
         return "Utilisateur{" +
                 "pseudo='" + pseudo + '\'' +
-                ", couleurChat='" + couleurChat + '\'' +
-                ", password='" + password + '\'' +
-                ", messages=" + messages +
-                '}';
+                ", couleurChat='" + couleurChat + '\'';
+    }
+
+
+    /**
+     * Methode de comparaison des prenom pour avoir une liste de contact trier par pseudo
+     */
+    public static Comparator<Utilisateur> contactPseudo = new Comparator<Utilisateur>() {
+
+        public int compare(Utilisateur s1, Utilisateur s2) {
+            String ContactPseudo1 = s1.getPseudo().toUpperCase();
+            String ContactPseudo2 = s2.getPseudo().toUpperCase();
+
+            return ContactPseudo1.compareTo(ContactPseudo2);
+        }
+    };
+
+    /**
+     * Methode de comparaison des prenom pour avoir une liste de contact trier par couleur (optionnelle)
+     */
+    public static Comparator<Utilisateur> contactColor = new Comparator<Utilisateur>() {
+
+        public int compare(Utilisateur s1, Utilisateur s2) {
+            String ContactColor1 = s1.getCouleurChat().toUpperCase();
+            String ContactColor2 = s2.getCouleurChat().toUpperCase();
+
+            return ContactColor1.compareTo(ContactColor2);
+        }
+    };
+    public static boolean isValidHexaCode(String str)
+    {
+        String regex = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
+
+        Pattern p = Pattern.compile(regex);
+
+        if (str == null) return false;
+        Matcher m = p.matcher(str);
+        return m.matches();
     }
 }
