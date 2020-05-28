@@ -1,8 +1,16 @@
 {
-    "pseudo": "Raymond Poincarré",
-    "password" : "republique",
-    "couleurChat" : "green",
-    "messages" : [
+    "titre": "Discussion entre Raymond Poincarré et Patrice de Mac-Mahon",
+    "listeMembres": [
+        {
+            "pseudo": "Raymond Poincarré",
+            "couleurChat" : "green"
+        },
+        {
+            "pseudo": "Patrice de Mac-Mahon",
+            "couleurChat": "blue"
+        }
+    ],
+    "fileMessages" : [
         {
             "id" : 1,
             "date":"2020-05-08",

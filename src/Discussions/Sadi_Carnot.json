@@ -1,7 +1,18 @@
 {
-    "pseudo": "Sadi Carnot",
+    "titre": "Discussion entre Sadi Carnot et Patrice de Mac-Mahon",
+    "listeMembres": [
+        {
+            "pseudo": "Sadi Carnot",
+            "couleurChat" : "purple"
+        },
+        {
+            "pseudo": "Patrice de Mac-Mahon",
+            "couleurChat": "blue"
+        }
+    ],
+
     "password" : "hoopla",
-    "couleurChat" : "blue",
+
     "messages" : [
         {
             "id" : 1, 

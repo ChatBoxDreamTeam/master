@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -52,33 +53,62 @@ public class App extends Application {
 
         // Définit la liste des utilisateurs
         ArrayList<Utilisateur> listeUtilisateurs = new ArrayList<>();
+        ArrayList<Discussion> listeDiscussions = new ArrayList<>();
 
-        Gson gson = new Gson();
         /*
          Le try/catch/finally suivant va lire des discussions présentes dans des fichiers JSON dans le dossier Discussions.
          Pour chaque fichier JSON, le programme va les parser avec Files.walk et BufferedReader.
          Le programme va ensuite ajouter les utilisateurs présents dans les discussions.
-         Pour s'assurer du bon fonctionnement, le programme va afficher chaque utilisateur avec ses attributs.
+         Pour s'assurer du bon fonctionnement, le programme va afficher chaque discussion avec ses attributs.
          */
+
+        // PARTIE IMPORTATION DE JSON
         try(Stream<Path> walk = Files.walk(Paths.get("src\\Discussions"))){
-            List<Path> result = walk.filter(Files::isRegularFile).collect(Collectors.toList());
-            for (Path r : result){
-                try (BufferedReader bufferedReader = Files.newBufferedReader(r)){
-                    // Conversion du JSON
-                    Utilisateur user = gson.fromJson(bufferedReader, Utilisateur.class);
-                    listeUtilisateurs.add(user);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            List<Path> paths = walk.filter(Files::isRegularFile).collect(Collectors.toList());
+            for(Path path : paths){
+                Discussion discussion = new Discussion();
+                discussion.importFromJSON(path);
+                listeDiscussions.add(discussion);
             }
-        } catch (IOException e) {
+        } catch(IOException e){
             e.printStackTrace();
-        } finally {
-            for(Utilisateur utilisateur : listeUtilisateurs){
-                System.out.println(utilisateur);
-            }
-            // Lancement de l'interface graphique
-            launch();
         }
+        for(Discussion d : listeDiscussions){
+            System.out.println(d);
+        }
+
+        // PARTIE EXPORTATION DE JSON
+        Discussion discussion = new Discussion();
+        Utilisateur user1 = new Utilisateur();
+        Utilisateur user2 = new Utilisateur();
+        Message message1 = new Message();
+        Message message2 = new Message();
+
+        // définition des utilisateurs
+        user1.setPseudo("Stan Pines");
+        user2.setPseudo("Homer Simpson");
+        user1.setCouleurChat("green");
+        user2.setCouleurChat("blue");
+
+        // définition des messages
+        message1.setId(1);
+        message1.setDate("2020-05-28");
+        message1.setAuthor(user1.getPseudo());
+        message1.setContent("Hello Homer Simpson");
+        message2.setId(2);
+        message2.setAuthor(user2.getPseudo());
+        message2.setDate("2020-05-28");
+        message2.setContent("Hello Stan Pines");
+
+        // exportation
+        discussion.addMembre(user1);
+        discussion.addMembre(user2);
+        discussion.addMessage(message1);
+        discussion.addMessage(message2);
+        discussion.setTitre("Discussion test");
+        discussion.exportToJSON("src\\Discussions\\Stan_Pines.json");
+
+
+        launch();
     }
 }

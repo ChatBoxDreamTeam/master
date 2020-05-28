@@ -23,7 +23,7 @@ public class Message {
      * @return l'ID du message
      */
     public int getId() {
-        return id;
+        return this.id;
     }
 
     /**
@@ -39,7 +39,7 @@ public class Message {
      * @return le contenu du message
      */
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     /**
@@ -55,7 +55,7 @@ public class Message {
      * @return la date du message
      */
     public String getDate() {
-        return date;
+        return this.date;
     }
 
     /**
@@ -71,7 +71,7 @@ public class Message {
      * @return l'auteur du message
      */
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     /**

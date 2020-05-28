@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TestContact {
     public static void main(String[] args) {
-        ListContact contact = null;
+        /*ListContact contact = null;
         //ArrayList<Contact> contactList;
 
         Contact soeur1 = new Contact("Erika", "Dziedzic", "0707070707");
@@ -27,6 +27,6 @@ public class TestContact {
         ListContact.showContactList();
         ListContact.removeContact(soeur2);
         System.out.println("\nremoved contact list : ");
-        ListContact.showContactList();
+        ListContact.showContactList();*/
     }
 }

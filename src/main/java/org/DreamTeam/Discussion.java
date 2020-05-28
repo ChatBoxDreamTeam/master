@@ -1,7 +1,15 @@
 package org.DreamTeam;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.scene.image.Image;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -19,11 +27,13 @@ import java.util.ArrayList;
 
 public class Discussion {
 
-    String titre;
-    ArrayList<Utilisateur> listeMembres;
-    ArrayList<Message> fileMessages;
+    public String titre;
+    public ArrayList<Utilisateur> listeMembres;
+    public ArrayList<Message> fileMessages;
 
     public Discussion() {
+        this.listeMembres = new ArrayList<>();
+        this.fileMessages = new ArrayList<>();
     }
 
     /**
@@ -31,7 +41,7 @@ public class Discussion {
      * @return le titre de la discussion
      */
     public String getTitre() {
-        return titre;
+        return this.titre;
     }
 
     /**
@@ -47,7 +57,15 @@ public class Discussion {
      * @return la liste des membres dans la discussion
      */
     public ArrayList<Utilisateur> getListeMembres() {
-        return listeMembres;
+        return this.listeMembres;
+    }
+
+    /**
+     * <h2>getFileMessages</h2>
+     * @return la liste des messages envoyés
+     */
+    public ArrayList<Message> getFileMessages(){
+        return this.fileMessages;
     }
 
     /**
@@ -79,5 +97,62 @@ public class Discussion {
     public boolean addMessage(Message m, Image i){
         this.fileMessages.add(m);
         return true;
+    }
+
+    /**
+     * <h2>exportToJSON</h2>
+     * Fonction qui exporte la discussion dans un fichier JSON.
+     * @param filename nom du fichier JSON qui sera généré
+     */
+    public void exportToJSON(String filename){
+        try{
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Writer writer = Files.newBufferedWriter(Paths.get(filename));
+            gson.toJson(this, writer);
+            writer.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * <h2>importFromJSON</h2>
+     * Fonction qui importe la discussion depuis un fichier JSON.
+     * @TODO TROUVER UN MOYEN DE SIMPLIFIER L'IMPORT
+     * @param filename nom du fichier JSON à importer
+     */
+    public void importFromJSON(Path filename){
+        try{
+            Gson gson = new Gson();
+            try(BufferedReader bufferedReader = Files.newBufferedReader(filename)){
+                Discussion test = gson.fromJson(bufferedReader, Discussion.class);
+                this.setTitre(test.getTitre());
+                for(Utilisateur u : test.getListeMembres()){
+                    this.addMembre(u);
+                }
+                for(Message m : test.getFileMessages()){
+                    this.addMessage(m);
+                }
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * <h2>toString</h2>
+     * Overrides the default toString function.
+     * Affiche tous les détails de la discussion lors d'un println.
+     * @return les attributs sous forme de chaîne de caractères
+     */
+    @Override
+    public String toString() {
+        return "Discussion{" +
+                "titre='" + titre + '\'' +
+                ", listeMembres=" + listeMembres +
+                ", fileMessages=" + fileMessages +
+                '}';
     }
 }

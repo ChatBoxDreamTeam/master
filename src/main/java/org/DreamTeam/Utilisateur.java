@@ -17,8 +17,6 @@ public class Utilisateur {
 
     public String pseudo;
     public String couleurChat;
-    public String password;
-    public ArrayList<Message> messages;
 
     public Utilisateur() {
     }
@@ -28,7 +26,7 @@ public class Utilisateur {
      * @return le pseudo de l'utilisateur
      */
     public String getPseudo() {
-        return pseudo;
+        return this.pseudo;
     }
 
     /**
@@ -44,7 +42,7 @@ public class Utilisateur {
      * @return la couleur du pseudo de l'utilisateur
      */
     public String getCouleurChat() {
-        return couleurChat;
+        return this.couleurChat;
     }
 
     /**
@@ -55,45 +53,11 @@ public class Utilisateur {
         this.couleurChat = couleurChat;
     }
 
-    /**
-     * <h2>getPassword</h2>
-     * @return le mot de passe de l'utilisateur
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * <h2>setPassword</h2>
-     * @param password mot de passe de l'utilisateur
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * <h2>getMessages</h2>
-     * @return la liste des messages de l'utilisateur
-     */
-    public ArrayList<Message> getMessages() {
-        return messages;
-    }
-
-    /**
-     * <h2>setMessages</h2>
-     * @param messages de l'utilisateur
-     */
-    public void setMessages(ArrayList<Message> messages) {
-        this.messages = messages;
-    }
-
     @Override
     public String toString() {
         return "Utilisateur{" +
                 "pseudo='" + pseudo + '\'' +
                 ", couleurChat='" + couleurChat + '\'' +
-                ", password='" + password + '\'' +
-                ", messages=" + messages +
                 '}';
     }
 }

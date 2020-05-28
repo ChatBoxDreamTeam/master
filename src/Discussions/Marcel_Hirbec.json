@@ -1,8 +1,16 @@
 {
-    "pseudo": "Marcel Hirbec",
-    "password" : "blabla",
-    "couleurChat" : "red",
-    "messages" : [
+    "titre": "Discussion entre Marcel Hirbec et Gustave Flaubert",
+    "listeMembres": [
+        {
+            "pseudo": "Marcel Hirbec",
+            "couleurChat" : "red"
+        },
+        {
+            "pseudo": "Gustave Flaubert",
+            "couleurChat": "orange"
+        }
+    ],
+    "fileMessages" : [
         {
             "id" : 1, 
             "date":"2020-05-08",

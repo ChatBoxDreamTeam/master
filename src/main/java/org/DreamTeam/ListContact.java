@@ -51,7 +51,7 @@ public class ListContact {
      * @param newPhoneNumber le nouveau numero que l'on souhaite donner au contact
      */
     public static void editPhoneContact(Contact contact, String newPhoneNumber){
-        contact.setPhoneNumber(newPhoneNumber);
+        //contact.setPhoneNumber(newPhoneNumber);
     }
 
     /**
