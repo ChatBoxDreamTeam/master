@@ -1,5 +1,7 @@
 package org.DreamTeam;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -51,7 +53,7 @@ public class ListContact {
      * @param newPhoneNumber le nouveau numero que l'on souhaite donner au contact
      */
     public static void editPhoneContact(Contact contact, String newPhoneNumber){
-        contact.setPhoneNumber(newPhoneNumber);
+        contact.setColor(Color.GREY);
     }
 
     /**

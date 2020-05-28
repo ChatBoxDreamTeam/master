@@ -1,5 +1,7 @@
 package org.DreamTeam;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class TestContact {
@@ -7,14 +9,14 @@ public class TestContact {
         ListContact contact = null;
         //ArrayList<Contact> contactList;
 
-        Contact soeur1 = new Contact("Erika", "Dziedzic", "0707070707");
-        Contact soeur2 = new Contact("Julie", "Dziedzic", "0606060606");
-        Contact copine = new Contact("prenom", "nom", "0111111111");
+        Contact soeur1 = new Contact("Erika", "Dziedzic", Color.CYAN);
+        Contact soeur2 = new Contact("Julie", "Dziedzic", Color.AZURE);
+        Contact copine = new Contact("prenom", "nom", Color.CORAL);
 
 
         copine.setFirstName("Claire");
         copine.setLastName("nom1");
-        copine.setPhoneNumber("0607060706");
+        copine.setColor(Color.AQUA);
         ListContact.editLastNameContact(copine, "Dziedzic");
 
         ListContact.AddContact(soeur1);
