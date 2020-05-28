@@ -1,6 +1,10 @@
 package org.DreamTeam;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.*;
 
 /**
  * <h1>Utilisateur</h1>
@@ -21,12 +25,25 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
+    public Utilisateur(String pseudo) {
+        this.pseudo = pseudo;
+        this.couleurChat = "49AA31";
+    }
+
+    public Utilisateur(String pseudo, String color) {
+        this.pseudo = pseudo;
+        if(isValidHexaCode(color)) this.couleurChat = color;
+        else this.couleurChat = "49AA31";
+    }
+
+
+
     /**
      * <h2>getPseudo</h2>
      * @return le pseudo de l'utilisateur
      */
     public String getPseudo() {
-        return this.pseudo;
+        return pseudo;
     }
 
     /**
@@ -42,7 +59,7 @@ public class Utilisateur {
      * @return la couleur du pseudo de l'utilisateur
      */
     public String getCouleurChat() {
-        return this.couleurChat;
+        return couleurChat;
     }
 
     /**
@@ -57,7 +74,43 @@ public class Utilisateur {
     public String toString() {
         return "Utilisateur{" +
                 "pseudo='" + pseudo + '\'' +
-                ", couleurChat='" + couleurChat + '\'' +
-                '}';
+                ", couleurChat='" + couleurChat + '\'';
+    }
+
+
+    /**
+     * Methode de comparaison des prenom pour avoir une liste de contact trier par pseudo
+     */
+    public static Comparator<Utilisateur> contactPseudo = new Comparator<Utilisateur>() {
+
+        public int compare(Utilisateur s1, Utilisateur s2) {
+            String ContactPseudo1 = s1.getPseudo().toUpperCase();
+            String ContactPseudo2 = s2.getPseudo().toUpperCase();
+
+            return ContactPseudo1.compareTo(ContactPseudo2);
+        }
+    };
+
+    /**
+     * Methode de comparaison des prenom pour avoir une liste de contact trier par couleur (optionnelle)
+     */
+    public static Comparator<Utilisateur> contactColor = new Comparator<Utilisateur>() {
+
+        public int compare(Utilisateur s1, Utilisateur s2) {
+            String ContactColor1 = s1.getCouleurChat().toUpperCase();
+            String ContactColor2 = s2.getCouleurChat().toUpperCase();
+
+            return ContactColor1.compareTo(ContactColor2);
+        }
+    };
+    public static boolean isValidHexaCode(String str)
+    {
+        String regex = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
+
+        Pattern p = Pattern.compile(regex);
+
+        if (str == null) return false;
+        Matcher m = p.matcher(str);
+        return m.matches();
     }
 }

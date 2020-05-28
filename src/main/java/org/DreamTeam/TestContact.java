@@ -1,32 +1,30 @@
 package org.DreamTeam;
 
-import java.util.ArrayList;
+import javafx.scene.paint.Color;
 
 public class TestContact {
     public static void main(String[] args) {
-        /*ListContact contact = null;
+        ListUtilisateur contact = null;
         //ArrayList<Contact> contactList;
 
-        Contact soeur1 = new Contact("Erika", "Dziedzic", "0707070707");
-        Contact soeur2 = new Contact("Julie", "Dziedzic", "0606060606");
-        Contact copine = new Contact("prenom", "nom", "0111111111");
+        Utilisateur soeur1 = new Utilisateur("ErikaDziedzic");
+        Utilisateur soeur2 = new Utilisateur("JulieDziedzic", "BD17AE");
+        Utilisateur copine = new Utilisateur("prenomNom", "F7553F");
 
 
-        copine.setFirstName("Claire");
-        copine.setLastName("nom1");
-        copine.setPhoneNumber("0607060706");
-        ListContact.editLastNameContact(copine, "Dziedzic");
+        copine.setPseudo("Claire");
+        copine.setCouleurChat("5198824");
 
-        ListContact.AddContact(soeur1);
-        ListContact.AddContact(soeur2);
-        ListContact.AddContact(copine);
+        ListUtilisateur.AddContact(soeur1);
+        ListUtilisateur.AddContact(soeur2);
+        ListUtilisateur.AddContact(copine);
         System.out.println("Total list : ");
-        ListContact.showContactList();
-        ListContact.orderContactByFirstName();
+        ListUtilisateur.showContactList();
+        ListUtilisateur.orderContactByFirstName();
         System.out.println("\nordered list : ");
-        ListContact.showContactList();
-        ListContact.removeContact(soeur2);
+        ListUtilisateur.showContactList();
+        ListUtilisateur.removeContact(soeur2);
         System.out.println("\nremoved contact list : ");
-        ListContact.showContactList();*/
+        ListUtilisateur.showContactList();
     }
 }
