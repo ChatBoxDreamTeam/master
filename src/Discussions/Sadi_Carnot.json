@@ -1,0 +1,49 @@
+{
+    "pseudo": "Sadi Carnot",
+    "password" : "hoopla",
+    "couleurChat" : "blue",
+    "messages" : [
+        {
+            "id" : 1, 
+            "date":"2020-05-08",
+            "author":"Sadi Carnot",
+            "content":"Patrice, vous devriez lire le dernier article de Libération."
+        },
+        {
+            "id": 2,
+            "date":"2020-05-08",
+            "author":"Sadi Carnot",
+            "content":"Je suis plus qu'abasourdi quant aux déclarations de cet énergumène."
+        },
+        {
+            "id":3,
+            "date":"2020-05-08",
+            "author":"Patrice de Mac-Mahon",
+            "content":"J'étais justement en train de le lire. Je suis surpris de ces déclarations."
+        },
+        {
+            "id":4,
+            "date":"2020-05-08",
+            "author":"Sadi Carnot",
+            "content":"Nous sommes d'accord. L'histoire retiendra que Raymond Poincarré ne soutient pas la république."
+        },
+        {
+            "id":5,
+            "date":"2020-05-08",
+            "author":"Patrice de Mac-Mahon",
+            "content":"Vous exagérez un peu je pense, il ne mérite pas tant. Il supporte la république."
+        },
+        {
+            "id":6,
+            "date":"2020-05-08",
+            "author":"Sadi Carnot",
+            "content":"Voyons donc, soyez raisonnable Patrice. Je reviens vers vous dès que j'ai plus d'informations."
+        },
+        {
+            "id":7,
+            "date":"2020-05-08",
+            "author":"Patrice de Mac-Mahon",
+            "content":"Je suis tout à fait raisonnable. Je le contacterai."
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "pseudo": "Marcel Hirbec",
+    "password" : "blabla",
+    "couleurChat" : "red",
+    "messages" : [
+        {
+            "id" : 1, 
+            "date":"2020-05-08",
+            "author":"Marcel Hirbec",
+            "content":"Bonjour, comment allez-vous ?"
+        },
+        {
+            "id": 2,
+            "date":"2020-05-08",
+            "author":"Gustave Flaubert",
+            "content":"Je vais bien, et vous ?"
+        },
+        {
+            "id":3,
+            "date":"2020-05-08",
+            "author":"Marcel Hirbec",
+            "content":"Je vais bien, avez-vous vu ce qui se trame dans l'actualité ?"
+        },
+        {
+            "id":4,
+            "date":"2020-05-08",
+            "author":"Gustave Flaubert",
+            "content":"C'est tout de même hallucinant de voir que ce genre de personnes continue de courir."
+        },
+        {
+            "id":5,
+            "date":"2020-05-08",
+            "author":"Marcel Hirbec",
+            "content":"Je suis bien d'accord. Que fait le gouvernement ?"
+        },
+        {
+            "id":6,
+            "date":"2020-05-08",
+            "author":"Gustave Flaubert",
+            "content":"Vous m'ôtez les mots de la bouche. Je vous recontacterai plus tard."
+        },
+        {
+            "id":7,
+            "date":"2020-05-08",
+            "author":"Marcel Hirbec",
+            "content":"Parfait. À plus tard."
+        }
+    ]
+}

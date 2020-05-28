@@ -82,7 +82,7 @@ public class DragResizeMod {
         }
     };
 
-    public static enum S {
+    public enum S {
         DEFAULT,
         DRAG,
         NW_RESIZE,
@@ -92,7 +92,7 @@ public class DragResizeMod {
         E_RESIZE,
         W_RESIZE,
         N_RESIZE,
-        S_RESIZE;
+        S_RESIZE
     }
 
 
@@ -100,7 +100,7 @@ public class DragResizeMod {
 
     private S state = S.DEFAULT;
 
-    private Node node;
+    private final Node node;
     private OnDragResizeEventListener listener = defaultListener;
 
     private static final int MARGIN = 8;
