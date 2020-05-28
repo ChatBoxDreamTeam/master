@@ -1,5 +1,7 @@
 package org.DreamTeam;
 
+import javafx.scene.paint.Color;
+
 import java.util.Comparator;
 
 /**
@@ -13,18 +15,18 @@ public class Contact {
 
     private String firstName;
     private String lastName;
-    private String phoneNumber;
+    private Color couleurChat;
 
     /**
      * Constructeur d'un Contact
      * @param firstName prenom du contact
      * @param lastName nom du contact
-     * @param phoneNumber numero du contact
+     * @param color couleur du chat
      */
-    public Contact(String firstName, String lastName, String phoneNumber) {
+    public Contact(String firstName, String lastName, Color color) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
+        this.couleurChat = color;
     }
 
     /**
@@ -63,16 +65,16 @@ public class Contact {
      * Methode permettant de récupérer le numero du contact
      * @return le numero du contact
      */
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public Color getColor() {
+        return couleurChat;
     }
 
     /**
      * Methode permettant de definir le numero du contact
-     * @param phoneNumber numero du contact
+     * @param couleur couleur du contact
      */
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setColor(Color couleur) {
+        this.couleurChat = couleur;
     }
 
     /**
@@ -82,8 +84,7 @@ public class Contact {
     @Override
     public String toString() {
         return ("FirstName : "+this.getFirstName()+
-                "\tLastName : "+ this.getLastName() +
-                "\tPhone : "+ this.getPhoneNumber());
+                "\tLastName : "+ this.getLastName());
     }
 
     /**
