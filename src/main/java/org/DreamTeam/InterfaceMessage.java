@@ -30,10 +30,8 @@ public class InterfaceMessage extends Parent {
      * Pour le moment un simple rectangle pour représenter la zone
      */
     public InterfaceMessage(double height, double width) {
-        rectangle = new Rectangle(width, height, Color.CYAN);
+        rectangle = new Rectangle(width, height, Color.WHITE);
         this.getChildren().add(rectangle);
-        Label txt = new Label("test");
-        this.getChildren().add(txt);
     }
 
     /**

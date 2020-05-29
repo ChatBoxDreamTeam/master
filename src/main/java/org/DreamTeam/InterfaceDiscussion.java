@@ -23,7 +23,7 @@ public class InterfaceDiscussion extends Parent {
      * @param width longueur que doit occuper le rectangle (l'interface)
      */
     public InterfaceDiscussion(double height, double width){
-        rectangle = new Rectangle(width, height, Color.WHITE);
+        rectangle = new Rectangle(width, height, Color.LIGHTGRAY);
         this.getChildren().add(rectangle);
     }
 
