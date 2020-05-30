@@ -2,6 +2,14 @@ package org.DreamTeam;
 
 import javafx.scene.Parent;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class InterfaceComplete extends Parent {
 
     /**
@@ -49,13 +57,27 @@ public class InterfaceComplete extends Parent {
         this.height=height;
         this.width=width;
 
+        Discussion discussion = new Discussion();
+
+
         interMsg = new InterfaceMessage(getHeight(),(1-pourcentageSeparation)*getWidth());
         interMsg.setTranslateX(pourcentageSeparation*width);
 
         interDisc = new InterfaceDiscussion(getHeight(),pourcentageSeparation*getWidth());
-
+        discussion.addObserver(interDisc);
+        try(Stream<Path> walk = Files.walk(Paths.get("src\\Discussions"))){
+            List<Path> paths = walk.filter(Files::isRegularFile).collect(Collectors.toList());
+            for(Path path : paths){
+                discussion.importFromJSON(path);
+            }
+        } catch(IOException e){
+            e.printStackTrace();
+        }
         this.getChildren().addAll(interDisc, interMsg);
+
+        interDisc.setOnMouseClicked(event -> interMsg.setColor());
     }
+
 
     /**
      * <p>Methode permettant de récupérer la hauteur de l'interface

@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,6 +31,7 @@ public class Discussion {
     public String titre;
     public ArrayList<Utilisateur> listeMembres;
     public ArrayList<Message> fileMessages;
+    public ArrayList<DiscussionListener> listeners = new ArrayList<>();
 
     public Discussion() {
         this.listeMembres = new ArrayList<>();
@@ -133,6 +135,9 @@ public class Discussion {
                 for(Message m : test.getFileMessages()){
                     this.addMessage(m);
                 }
+                for(DiscussionListener listener : this.listeners){
+                    listener.update(this);
+                }
             } catch (IOException e){
                 e.printStackTrace();
             }
@@ -140,6 +145,15 @@ public class Discussion {
             e.printStackTrace();
         }
     }
+
+    public void addObserver(DiscussionListener listener){
+        this.listeners.add(listener);
+    }
+
+    public void removeObserver(DiscussionListener listener){
+        this.listeners.remove(listener);
+    }
+
 
     /**
      * <h2>toString</h2>

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,8 @@ public class App extends Application {
         // Définit la liste des utilisateurs
         ArrayList<Utilisateur> listeUtilisateurs = new ArrayList<>();
         ArrayList<Discussion> listeDiscussions = new ArrayList<>();
+        ArrayList<InterfaceContact> interfaceContactArrayList = new ArrayList<>();
+        launch();
 
         /*
          Le try/catch/finally suivant va lire des discussions présentes dans des fichiers JSON dans le dossier Discussions.
@@ -63,11 +66,13 @@ public class App extends Application {
          */
 
         // PARTIE IMPORTATION DE JSON
-        try(Stream<Path> walk = Files.walk(Paths.get("src\\Discussions"))){
+        /*try(Stream<Path> walk = Files.walk(Paths.get("src\\Discussions"))){
             List<Path> paths = walk.filter(Files::isRegularFile).collect(Collectors.toList());
             for(Path path : paths){
                 Discussion discussion = new Discussion();
                 discussion.importFromJSON(path);
+                interfaceContactArrayList.add(new InterfaceContact(50,50,discussion.getTitre()));
+
                 listeDiscussions.add(discussion);
             }
         } catch(IOException e){
@@ -75,7 +80,7 @@ public class App extends Application {
         }
         for(Discussion d : listeDiscussions){
             System.out.println(d);
-        }
+        }*/
 
         // PARTIE EXPORTATION DE JSON
         Discussion discussion = new Discussion();
@@ -109,6 +114,6 @@ public class App extends Application {
         discussion.exportToJSON("src\\Discussions\\Stan_Pines.json");
 
 
-        launch();
+
     }
 }
