@@ -16,7 +16,7 @@ public class Message {
     public int id;
     public String content;
     public String date;
-    public String author;
+    public Utilisateur author;
 
     /**
      * <h2>getId</h2>
@@ -70,16 +70,8 @@ public class Message {
      * <h2>getAuthor</h2>
      * @return l'auteur du message
      */
-    public String getAuthor() {
+    public Utilisateur getAuthor() {
         return author;
-    }
-
-    /**
-     * <h2>setAuthor</h2>
-     * @param author du message.
-     */
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     /**
