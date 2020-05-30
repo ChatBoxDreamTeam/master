@@ -80,4 +80,12 @@ public class Discussion {
         this.fileMessages.add(m);
         return true;
     }
+
+    /**
+     * <h2>getFileMessages</h2>
+     * @return la liste des messages
+     */
+    public ArrayList<Message> getFileMessages() {
+        return fileMessages;
+    }
 }

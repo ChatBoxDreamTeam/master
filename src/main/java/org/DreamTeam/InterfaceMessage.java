@@ -1,7 +1,10 @@
 package org.DreamTeam;
 
+import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -21,36 +24,50 @@ import javafx.scene.text.Text;
 public class InterfaceMessage extends Parent {
 
 
-    /**
-     * Ce rectangle représente la partie droite avec les messages
-     */
-    Rectangle rectangle;
+    private InterfaceListeMessage HPan;
+    private SplitPane sp;
+    private InterfaceListeMessage interfaceListeMessage;
+    private InterfaceNewMessage interfaceNewMessage;
 
-    /**
-     * Pour le moment un simple rectangle pour représenter la zone
-     */
     public InterfaceMessage(double height, double width) {
-        rectangle = new Rectangle(width, height, Color.WHITE);
-        this.getChildren().add(rectangle);
+        sp = new SplitPane();
+        sp.orientationProperty().setValue(Orientation.HORIZONTAL);
+        interfaceListeMessage = new InterfaceListeMessage();
+        interfaceNewMessage = new InterfaceNewMessage();
+        sp.setDividerPosition(1,0.8f);
+        sp.getItems().addAll(interfaceListeMessage, interfaceNewMessage);
     }
 
-    /**
-     * Je réfléchis à pouvoir changer la taille de l'interface via cette méthode
-     * @param addVal valeur d'agrandissement de l'interface
-     * @see DragResizeMod
-     * @see #deplace(double décalage)
-     */
-    public void resize(double addVal){
-        rectangle.setWidth(rectangle.getWidth()+addVal);
-        deplace(addVal);
+
+    public InterfaceListeMessage getHPan() {
+        return HPan;
     }
 
-    /**
-     * Celle ci permettra de décaler l'interface agrandie ou rétrécie pour maintenir le coté droit.
-     *Sachant cependant que je regarde un <a href = "https://o7planning.org/fr/10645/tutoriel-javafx-anchorpane-layout">Anchor Pane</a> pour voir si on ne peut pas faire les choses différement
-     * @param addVal
-     */
-    public void deplace(double addVal){
-        rectangle.setTranslateX(addVal);
+    public void setHPan(InterfaceListeMessage HPan) {
+        this.HPan = HPan;
+    }
+
+    public SplitPane getSp() {
+        return sp;
+    }
+
+    public void setSp(SplitPane sp) {
+        this.sp = sp;
+    }
+
+    public InterfaceListeMessage getInterfaceListeMessage() {
+        return interfaceListeMessage;
+    }
+
+    public void setInterfaceListeMessage(InterfaceListeMessage interfaceListeMessage) {
+        this.interfaceListeMessage = interfaceListeMessage;
+    }
+
+    public InterfaceNewMessage getInterfaceNewMessage() {
+        return interfaceNewMessage;
+    }
+
+    public void setInterfaceNewMessage(InterfaceNewMessage interfaceNewMessage) {
+        this.interfaceNewMessage = interfaceNewMessage;
     }
 }
