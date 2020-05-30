@@ -85,7 +85,7 @@ public class InterfaceNewMessage extends Parent {
      * @return objet Message avec les paramètres entrés
      */
     public Message setSendMessage(Utilisateur util, TextField text, int id){
-        sendMessage.setAuthor(util.getPseudo());
+        sendMessage.setAuthor(util);
         sendMessage.setContent(text.getText());
         sendMessage.setDate(formatter.format(date = new Date()));
         sendMessage.setId(id+1);

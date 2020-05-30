@@ -75,6 +75,14 @@ public class Message {
     }
 
     /**
+     * <h2>setAuthor</h2>
+     * @param author du message
+     */
+    public void setAuthor(Utilisateur author) {
+        this.author = author;
+    }
+
+    /**
      * <h2>Fonction toString</h2>
      * @return une chaîne de caractères avec tous les détails du message.
      */
