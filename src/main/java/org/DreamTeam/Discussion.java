@@ -1,6 +1,7 @@
 package org.DreamTeam;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,10 @@ public class Discussion {
     String titre;
     ArrayList<Utilisateur> listeMembres;
     ArrayList<Message> fileMessages;
+    Color couleur;
 
     public Discussion() {
+        couleur = Color.web(listeMembres.get(0).getCouleurChat());
     }
 
     /**
@@ -87,5 +90,13 @@ public class Discussion {
      */
     public ArrayList<Message> getFileMessages() {
         return fileMessages;
+    }
+
+    public Color getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(Color couleur) {
+        this.couleur = couleur;
     }
 }
