@@ -53,7 +53,7 @@ public class InterfaceNewMessage extends Parent {
     public InterfaceNewMessage(Discussion disc, Utilisateur util){
         this.discussion = disc;
         this.utilisateur = util;
-        int dernièreValeur = discussion.getFileMessages().size();
+        int derniereValeur = discussion.getFileMessages().size();
         button = new Button("Send");
         textMessage = new TextField();
         this.hBox = new HBox();
@@ -62,7 +62,7 @@ public class InterfaceNewMessage extends Parent {
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                sendMessage= setSendMessage(utilisateur, textMessage, dernièreValeur);
+                sendMessage= setSendMessage(utilisateur, textMessage, derniereValeur);
                 discussion.addMessage(sendMessage);
             }
         };
