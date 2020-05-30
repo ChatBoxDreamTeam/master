@@ -6,6 +6,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 /**
  * listage des messages
  * @author César
@@ -30,5 +32,9 @@ public class InterfaceListeMessage extends Parent {
         vbox.setPrefHeight(Region.USE_COMPUTED_SIZE);
         vbox.setPrefWidth(Region.USE_COMPUTED_SIZE);
         scrollPane.setContent(vbox);
+
+        for (Message m:discussion.getFileMessages()){
+            vbox.getChildren().add(new BulleMessage(m.getAuthor(),m.getContent()));
+        }
     }
 }

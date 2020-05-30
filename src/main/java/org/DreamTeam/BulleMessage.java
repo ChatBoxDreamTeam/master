@@ -23,7 +23,7 @@ public class BulleMessage extends Parent {
         Text cont = new Text(content);
 
         lbl.getChildren().addAll(auth,cont);
-        lbl.setPrefSize( Double.MAX_VALUE, Double.MAX_VALUE);
+        lbl.setPrefSize( Double.MAX_VALUE, Double.MIN_VALUE);
         this.getChildren().add(lbl);
     }
 }
