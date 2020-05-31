@@ -2,12 +2,12 @@
 
 ## Notre équipe
 
-Sébastien Soto
-Yannis Boughali
-César Poalert
-Ismael Balaghni
-Titouan Wattelet
-Matthieu Dziedzic
+* Sébastien Soto
+* Yannis Boughali
+* César Poalert
+* Ismael Balaghni
+* Titouan Wattelet
+* Matthieu Dziedzic
 
 ## Choix de développement
 
