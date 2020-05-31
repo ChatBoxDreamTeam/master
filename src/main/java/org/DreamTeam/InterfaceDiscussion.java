@@ -54,7 +54,6 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
 
     @Override
     public void update(Object o) {
-
         this.ListeDiscussion.add((Discussion) o);
         this.newInterfaceContact(((Discussion) o).getTitre(), i);
         i = i+1;
@@ -66,6 +65,18 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         this.getChildren().add(ic);
     }
 
+    public void refreshUI() {
+        for(int i=0; i<interfaceContactArrayList.size(); i++) {
+            ic=interfaceContactArrayList.get(i);
+            //ic.setPositionX(ic.getPositionX());
+            ic.setPositionY((i*this.width/5+5)+i*10);
+        }
+    }
+
+    public int getNumberOfDiscution() {
+        return interfaceContactArrayList.size();
+    }
+
     public ArrayList<InterfaceContact> getInterfaceContactArrayList(){
         return interfaceContactArrayList;
     }
@@ -74,6 +85,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         interfaceContactArrayList.remove(interfaceContact);
         this.getChildren().remove(interfaceContact);
         i = i - 1;
+        refreshUI();
     }
 
     public void createDiscussion() {

@@ -2,6 +2,7 @@ package org.DreamTeam;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Side;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ContextMenu;
@@ -182,11 +183,14 @@ public class InterfaceComplete extends Parent {
         contactContextMenu.getItems().addAll(item1, item2);
         mainContextMenu.getItems().add(item3);
 
-        /*interDisc.setOnMousePressed(event -> {
-            if(event.isSecondaryButtonDown()){
-                mainContextMenu.show(event.getPickResult().getIntersectedNode().getParent(), Side.BOTTOM, event.getSceneX(), event.getSceneY());
+        interDisc.setOnMousePressed(event -> {
+            if (event.isSecondaryButtonDown()) {
+                if(interDisc.getNumberOfDiscution()==0) {
+                    mainContextMenu.show(interDisc.getScene().getWindow(), interDisc.getScene().getWindow().getX()+event.getX(), interDisc.getScene().getWindow().getY()+event.getY());
+                }
             }
-        });*/
+        });
+
     }
 
     public void updateBehavior(EventHandler<MouseEvent> eventHandler){
