@@ -37,7 +37,7 @@ public class InterfaceComplete extends Parent {
     /**
      * Pourcentage de place occupée par l'interface Discussion dans la partie gauche de la fenetre
      */
-    double pourcentageSeparation=35.0f/100.0f;
+    double pourcentageSeparation=30.0f/100.0f;
 
     /**
      * <p>Menu contextuel pour les options lors du clic droit</p>

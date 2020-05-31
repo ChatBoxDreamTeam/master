@@ -16,14 +16,14 @@ public class Message {
     public int id;
     public String content;
     public String date;
-    public String author;
+    public Utilisateur author;
 
     /**
      * <h2>getId</h2>
      * @return l'ID du message
      */
     public int getId() {
-        return this.id;
+        return id;
     }
 
     /**
@@ -39,7 +39,7 @@ public class Message {
      * @return le contenu du message
      */
     public String getContent() {
-        return this.content;
+        return content;
     }
 
     /**
@@ -55,7 +55,7 @@ public class Message {
      * @return la date du message
      */
     public String getDate() {
-        return this.date;
+        return date;
     }
 
     /**
@@ -70,15 +70,15 @@ public class Message {
      * <h2>getAuthor</h2>
      * @return l'auteur du message
      */
-    public String getAuthor() {
-        return this.author;
+    public Utilisateur getAuthor() {
+        return author;
     }
 
     /**
      * <h2>setAuthor</h2>
-     * @param author du message.
+     * @param author du message
      */
-    public void setAuthor(String author) {
+    public void setAuthor(Utilisateur author) {
         this.author = author;
     }
 

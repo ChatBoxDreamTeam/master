@@ -44,12 +44,13 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         interfaceContactArrayList = new ArrayList<>();
         this.width = width;
         this.height = height;
-        rectangle = new Rectangle(width, height, Color.WHITE);
+        rectangle = new Rectangle(width, height, Color.LIGHTGRAY);
         this.getChildren().add(rectangle);
         for(Node node : interfaceContactArrayList){
             node.setOnMouseClicked(event -> System.out.println("Clicked"));
         }
     }
+
 
     /**
      * <p>Permet de redimensionner le rectangle (l'interface)
