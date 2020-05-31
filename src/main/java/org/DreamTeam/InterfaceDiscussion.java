@@ -1,7 +1,5 @@
 package org.DreamTeam;
 
-import com.google.gson.internal.bind.ArrayTypeAdapter;
-import javafx.css.converter.DeriveSizeConverter;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.paint.Color;
@@ -72,7 +70,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
     @Override
     public void update(Object o) {
         this.ListeDiscussion.add((Discussion) o);
-        this.newInterfaceContact(((Discussion) o).getTitre(), i);
+        this.newInterfaceContact(((Discussion) o).getListeMembres().get(0).getPseudo(), i);
         i = i+1;
     }
 

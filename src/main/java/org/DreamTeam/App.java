@@ -72,8 +72,7 @@ public class App extends Application {
             for(Path path : paths){
                 Discussion discussion = new Discussion();
                 discussion.importFromJSON(path);
-                interfaceContactArrayList.add(new InterfaceContact(50,50,discussion.getTitre()));
-
+                //interfaceContactArrayList.add(new InterfaceContact(50,50,discussion.getTitre()));
                 listeDiscussions.add(discussion);
             }
         } catch(IOException e){
@@ -84,7 +83,7 @@ public class App extends Application {
         }*/
 
         // PARTIE EXPORTATION DE JSON
-        Discussion discussion = new Discussion();
+        /*Discussion discussion = new Discussion();
         Utilisateur user1 = new Utilisateur();
         Utilisateur user2 = new Utilisateur();
         Message message1 = new Message();
@@ -112,9 +111,6 @@ public class App extends Application {
         discussion.addMessage(message1);
         discussion.addMessage(message2);
         discussion.setTitre("Discussion test");
-        discussion.exportToJSON("src\\Discussions\\Stan_Pines.json");
-
-
-
+        discussion.exportToJSON("src\\Discussions\\Stan_Pines.json");*/
     }
 }

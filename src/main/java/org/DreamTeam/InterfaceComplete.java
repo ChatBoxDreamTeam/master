@@ -2,14 +2,11 @@ package org.DreamTeam;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Side;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -75,11 +72,12 @@ public class InterfaceComplete extends Parent {
         interMsg.setTranslateX(pourcentageSeparation*width);
         interDisc = new InterfaceDiscussion(getHeight(),pourcentageSeparation*getWidth());
 
-        Discussion discussion = new Discussion();
-        discussion.addObserver(interDisc);
+        Discussion discussion;
         try(Stream<Path> walk = Files.walk(Paths.get("src\\Discussions"))){
             List<Path> paths = walk.filter(Files::isRegularFile).collect(Collectors.toList());
             for(Path path : paths){
+                discussion = new Discussion();
+                discussion.addObserver(interDisc);
                 discussion.importFromJSON(path);
             }
         } catch(IOException e){
@@ -90,42 +88,6 @@ public class InterfaceComplete extends Parent {
         
         contactContextMenu = new ContextMenu();
         mainContextMenu = new ContextMenu();
-        /*contextMenu.setOnShowing(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                System.out.println("showing");
-            }
-        });
-        contextMenu.setOnShown(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent e) {
-                System.out.println("shown");
-            }
-        });
-        final InterfaceContact[] ictest = {null};
-        EventHandler<MouseEvent> eventHandler = event -> {
-
-            ictest[0] = (InterfaceContact) event.getSource();
-            System.out.println(ictest[0].getDiscussionTitle().getText());
-            if(event.isPrimaryButtonDown()){
-                interMsg.setColor();
-            } else if(event.isSecondaryButtonDown()){
-                contextMenu.show(event.getPickResult().getIntersectedNode(),Side.BOTTOM, 0, 0);
-            }
-
-        };
-        for(Node node : interDisc.getInterfaceContactArrayList()){
-            node.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
-        }*/
-
-
-        /*MenuItem item1 = new MenuItem("Delete message");
-        item1.setOnAction(e -> {
-            System.out.println(e.toString());
-            interDisc.deleteDiscussion(ictest[0]);
-        });
-        MenuItem item2 = new MenuItem("Create discussion");
-        item2.setOnAction(event -> interDisc.createDiscussion());
-        contextMenu.getItems().addAll(item1, item2);*/
     }
 
 
@@ -158,7 +120,7 @@ public class InterfaceComplete extends Parent {
         EventHandler<MouseEvent> eventHandler = event -> {
             contacts[0] = (InterfaceContact) event.getSource();
             if(event.isPrimaryButtonDown()){
-                //interMsg.setColor();
+                //interMsg.setColor(); TODO REMPLACER PAR UN APPEL SHOW MESSAGE
                 for (InterfaceContact ic:interDisc.getInterfaceContactArrayList()) {
                     ic.unselectedContact();
                 }
@@ -168,9 +130,6 @@ public class InterfaceComplete extends Parent {
             }
         };
         updateBehavior(eventHandler);
-        /*for(Node node : interDisc.getInterfaceContactArrayList()){
-            node.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
-        }*/
         MenuItem item1 = new MenuItem("Delete message");
         item1.setOnAction(e -> {
             System.out.println(e.toString());
@@ -181,19 +140,14 @@ public class InterfaceComplete extends Parent {
             interDisc.createDiscussion();
             updateBehavior(eventHandler);
         });
-        MenuItem item3 = new MenuItem("Create discussion");
-        item3.setOnAction(event -> {
-            interDisc.createDiscussion();
-            updateBehavior(eventHandler);
-        });
-        MenuItem item4 = new MenuItem("Add member");
-        item4.setOnAction(event -> interDisc.addMemberToDiscussion(contacts[0]));
-        contactContextMenu.getItems().addAll(item1, item2, item4);
-        mainContextMenu.getItems().add(item3);
+        MenuItem item3 = new MenuItem("Add member");
+        item3.setOnAction(event -> interDisc.addMemberToDiscussion(contacts[0]));
+        contactContextMenu.getItems().addAll(item1, item3);
+        mainContextMenu.getItems().add(item2);
 
         interDisc.setOnMousePressed(event -> {
             if (event.isSecondaryButtonDown()) {
-                if(interDisc.getNumberOfDiscution()==0) {
+                if(!contactContextMenu.isShowing()) {
                     mainContextMenu.show(interDisc.getScene().getWindow(), interDisc.getScene().getWindow().getX()+event.getX(), interDisc.getScene().getWindow().getY()+event.getY());
                 }
             }
@@ -201,6 +155,11 @@ public class InterfaceComplete extends Parent {
 
     }
 
+    /**
+     * <h2>updateBehavior</h2>
+     * <p>Fonction qui met à jour le comportement des nouveaux nodes créés lors de l'ajout d'une nouvelle discussion.</p>
+     * @param eventHandler eventHandler à utiliser pour le comportement
+     */
     public void updateBehavior(EventHandler<MouseEvent> eventHandler){
         for(Node node : interDisc.getInterfaceContactArrayList()){
             node.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);

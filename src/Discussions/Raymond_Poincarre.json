@@ -10,47 +10,68 @@
             "couleurChat": "1514D7"
         }
     ],
-    "messages" : [
+    "fileMessages" : [
         {
             "id" : 1,
             "date":"2020-05-08",
-            "author":"Raymond Poincarré",
+            "author":{
+                "pseudo": "Raymond Poincarré",
+                "couleurChat" : "4AD714"
+            },
             "content":"Vous me prenez sereinement pour un fou."
         },
         {
             "id": 2,
             "date":"2020-05-08",
-            "author":"Raymond Poincarré",
+            "author":{
+                "pseudo": "Raymond Poincarré",
+                "couleurChat" : "4AD714"
+            },
             "content":"Comment ça, je n'aime pas la république. Qui vous fait croire cela ?"
         },
         {
             "id":3,
             "date":"2020-05-08",
-            "author":"Patrice de Mac-Mahon",
+            "author":{
+                "pseudo": "Patrice de Mac-Mahon",
+                "couleurChat": "1514D7"
+            },
             "content":"Je discutais avec Sadi. Nous étions surpris, voire choqués, par vos propos dans Libération"
         },
         {
             "id":4,
             "date":"2020-05-08",
-            "author":"Raymond Poincarré",
+            "author":{
+                "pseudo": "Raymond Poincarré",
+                "couleurChat" : "4AD714"
+            },
             "content":"Voyons donc. Il a réussi à en tirer que je n'aimais pas la république ? Alors que j'étais président ? A-t-il perdu la tête ?"
         },
         {
             "id":5,
             "date":"2020-05-08",
-            "author":"Patrice de Mac-Mahon",
+            "author":{
+                "pseudo": "Patrice de Mac-Mahon",
+                "couleurChat": "1514D7"
+            },
             "content":"Expliquez-lui. Expliquez-nous, pensez vous ces propos ?"
         },
         {
             "id":6,
             "date":"2020-05-08",
-            "author":"Raymond Poincarré",
+            "author":{
+                "pseudo": "Raymond Poincarré",
+                "couleurChat" : "4AD714"
+            },
             "content":"Écoutez, prenons rendez-vous afin d'en discuter plus sereinement."
         },
         {
             "id":7,
             "date":"2020-05-08",
-            "author":"Patrice de Mac-Mahon",
+            "author":{
+                "pseudo": "Patrice de Mac-Mahon",
+                "couleurChat": "1514D7"
+            },
             "content":"Faisons ainsi. Je ramènerai Sadi avec moi."
         }
     ]
