@@ -130,6 +130,11 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         refreshUI();
     }
 
+    public void addMemberToDiscussion(InterfaceContact interfaceContact){
+        Utilisateur utilisateur = null;
+        this.ListeDiscussion.get(interfaceContact.getDiscussionId()).addMembre(utilisateur);
+    }
+
     /**
      * <p>Permet de créer une nouvelle discussion
      * </p>

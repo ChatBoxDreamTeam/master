@@ -6,6 +6,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 
@@ -156,7 +157,7 @@ public class InterfaceComplete extends Parent {
         EventHandler<MouseEvent> eventHandler = event -> {
             contacts[0] = (InterfaceContact) event.getSource();
             if(event.isPrimaryButtonDown()){
-                interMsg.setColor();
+                //interMsg.setColor();
             } else if(event.isSecondaryButtonDown()){
                 contactContextMenu.show(event.getPickResult().getIntersectedNode(), Side.BOTTOM, 0, 0);
             }
@@ -180,7 +181,9 @@ public class InterfaceComplete extends Parent {
             interDisc.createDiscussion();
             updateBehavior(eventHandler);
         });
-        contactContextMenu.getItems().addAll(item1, item2);
+        MenuItem item4 = new MenuItem("Add member");
+        item4.setOnAction(event -> interDisc.addMemberToDiscussion(contacts[0]));
+        contactContextMenu.getItems().addAll(item1, item2, item4);
         mainContextMenu.getItems().add(item3);
 
         interDisc.setOnMousePressed(event -> {
