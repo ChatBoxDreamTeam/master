@@ -164,7 +164,6 @@ public class InterfaceComplete extends Parent {
         /*for(Node node : interDisc.getInterfaceContactArrayList()){
             node.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
         }*/
-
         MenuItem item1 = new MenuItem("Delete message");
         item1.setOnAction(e -> {
             System.out.println(e.toString());
