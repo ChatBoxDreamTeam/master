@@ -11,12 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * écriture des messages
- * @author Mathieu
- * @version 1.0
- */
-
-/**
  * <h1>InterfaceNewMessage</h1>
  * <h2>Attributs</h2>
  * <ul>

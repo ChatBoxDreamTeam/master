@@ -42,6 +42,7 @@ public class InterfaceContact extends Parent {
         this.discussionTitle = new Text(this.rectangle.getWidth()+this.rectangle.getX(), this.rectangle.getY()+this.rectangle.getWidth()/2+5, discussionTitle);
         this.getChildren().addAll(rectangle, this.discussionTitle);
         discussionId=nbDiscussion+1;
+        System.out.println(rectangle.getStroke());
     }
 
     //=========================================================
@@ -111,6 +112,13 @@ public class InterfaceContact extends Parent {
      */
     public int getDiscussionId() {
         return this.discussionId;
+    }
+
+    public void selectedContact(){
+        rectangle.setStroke(Color.DARKBLUE);
+    }
+    public void unselectedContact(){
+        rectangle.setStroke(null);
     }
     //=========================================================
 }

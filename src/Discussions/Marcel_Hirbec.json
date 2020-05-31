@@ -3,11 +3,11 @@
     "listeMembres": [
         {
             "pseudo": "Marcel Hirbec",
-            "couleurChat" : "red"
+            "couleurChat" : "D72B14"
         },
         {
             "pseudo": "Gustave Flaubert",
-            "couleurChat": "orange"
+            "couleurChat": "D79014"
         }
     ],
     "fileMessages" : [

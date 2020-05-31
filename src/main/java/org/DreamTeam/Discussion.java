@@ -3,7 +3,7 @@ package org.DreamTeam;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
+import javafx.scene.paint.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,12 +33,12 @@ public class Discussion {
     public ArrayList<Utilisateur> listeMembres;
     public ArrayList<Message> fileMessages;
     public ArrayList<DiscussionListener> listeners = new ArrayList<>();
-    Color couleur;
+    public Color couleurChat;
 
     public Discussion() {
         this.listeMembres = new ArrayList<>();
         this.fileMessages = new ArrayList<>();
-        couleur = Color.web(listeMembres.get(0).getCouleurChat());
+        if (!listeMembres.isEmpty())couleurChat = Color.web(listeMembres.get(0).getCouleurChat());
     }
 
     /**
@@ -174,10 +174,10 @@ public class Discussion {
     }
 
     public Color getCouleur() {
-        return couleur;
+        return couleurChat;
     }
 
     public void setCouleur(Color couleur) {
-        this.couleur = couleur;
+        this.couleurChat = couleur;
     }
 }

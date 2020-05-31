@@ -153,4 +153,8 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         newInterfaceContact(""+name, i);
         i = i +1;
     }
+
+    public InterfaceContact getIc() {
+        return ic;
+    }
 }

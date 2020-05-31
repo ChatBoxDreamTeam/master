@@ -39,7 +39,7 @@ class InterfaceNewMessageTest extends Application {
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                sendMessage.setAuthor(utilisateur.getPseudo());
+                sendMessage.setAuthor(utilisateur);
                 sendMessage.setContent(textMessage.getText());
                 sendMessage.setDate(formatter.format(date));
                 sendMessage.setId(dernièreValeur+1);

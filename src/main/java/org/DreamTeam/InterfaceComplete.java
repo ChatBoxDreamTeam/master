@@ -9,6 +9,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -158,6 +159,10 @@ public class InterfaceComplete extends Parent {
             contacts[0] = (InterfaceContact) event.getSource();
             if(event.isPrimaryButtonDown()){
                 //interMsg.setColor();
+                for (InterfaceContact ic:interDisc.getInterfaceContactArrayList()) {
+                    ic.unselectedContact();
+                }
+                contacts[0].selectedContact();
             } else if(event.isSecondaryButtonDown()){
                 contactContextMenu.show(event.getPickResult().getIntersectedNode(), Side.BOTTOM, 0, 0);
             }
