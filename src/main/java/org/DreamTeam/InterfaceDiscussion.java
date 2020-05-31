@@ -2,6 +2,7 @@ package org.DreamTeam;
 
 import com.google.gson.internal.bind.ArrayTypeAdapter;
 import javafx.css.converter.DeriveSizeConverter;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 public class InterfaceDiscussion extends Parent implements DiscussionListener {
 
     private ArrayList<Discussion> ListeDiscussion;
+    private ArrayList<InterfaceContact> interfaceContactArrayList;
     private InterfaceContact ic;
     double height, width;
     int i = 0;
@@ -28,10 +30,14 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
      */
     public InterfaceDiscussion(double height, double width){
         ListeDiscussion = new ArrayList<>();
+        interfaceContactArrayList = new ArrayList<>();
         this.width = width;
         this.height = height;
         rectangle = new Rectangle(width, height, Color.WHITE);
         this.getChildren().add(rectangle);
+        for(Node node : interfaceContactArrayList){
+            node.setOnMouseClicked(event -> System.out.println("Clicked"));
+        }
     }
 
     /**
@@ -56,6 +62,22 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
 
     private void newInterfaceContact(String titre, int nbDiscussion) {
         ic = new InterfaceContact(this.width/5, this.width/5, titre, nbDiscussion);
+        interfaceContactArrayList.add(ic);
         this.getChildren().add(ic);
+    }
+
+    public ArrayList<InterfaceContact> getInterfaceContactArrayList(){
+        return interfaceContactArrayList;
+    }
+
+    public void deleteDiscussion(InterfaceContact interfaceContact) {
+        interfaceContactArrayList.remove(interfaceContact);
+        this.getChildren().remove(interfaceContact);
+        i = i - 1;
+    }
+
+    public void createDiscussion() {
+        newInterfaceContact("Discussion " + String.valueOf(i), i);
+        i = i +1;
     }
 }

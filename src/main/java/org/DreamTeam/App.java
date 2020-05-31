@@ -41,6 +41,7 @@ public class App extends Application {
         InterfaceComplete interfaceC = new InterfaceComplete(scene.getHeight(), scene.getWidth());
         root.getChildren().add(interfaceC);
 
+        interfaceC.createContextMenu();
         stage.setScene(scene);
         stage.show();
 
