@@ -33,12 +33,12 @@ public class Discussion {
     public ArrayList<Utilisateur> listeMembres;
     public ArrayList<Message> fileMessages;
     public ArrayList<DiscussionListener> listeners = new ArrayList<>();
-    public Color couleurChat;
+    public String couleurChat;
 
     public Discussion() {
         this.listeMembres = new ArrayList<>();
         this.fileMessages = new ArrayList<>();
-        if (!listeMembres.isEmpty())couleurChat = Color.web(listeMembres.get(0).getCouleurChat());
+        if (!listeMembres.isEmpty())couleurChat = listeMembres.get(0).getCouleurChat();
     }
 
     /**
@@ -173,11 +173,11 @@ public class Discussion {
                 '}';
     }
 
-    public Color getCouleur() {
+    public String getCouleur() {
         return couleurChat;
     }
 
-    public void setCouleur(Color couleur) {
+    public void setCouleur(String couleur) {
         this.couleurChat = couleur;
     }
 }

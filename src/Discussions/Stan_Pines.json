@@ -1,0 +1,34 @@
+{
+  "titre": "Discussion test",
+  "listeMembres": [
+    {
+      "pseudo": "Stan Pines",
+      "couleurChat": "green"
+    },
+    {
+      "pseudo": "Homer Simpson",
+      "couleurChat": "blue"
+    }
+  ],
+  "fileMessages": [
+    {
+      "id": 1,
+      "content": "Hello Homer Simpson",
+      "date": "2020-05-28",
+      "author": {
+        "pseudo": "Stan Pines",
+        "couleurChat": "green"
+      }
+    },
+    {
+      "id": 2,
+      "content": "Hello Stan Pines",
+      "date": "2020-05-28",
+      "author": {
+        "pseudo": "Homer Simpson",
+        "couleurChat": "blue"
+      }
+    }
+  ],
+  "listeners": []
+}
