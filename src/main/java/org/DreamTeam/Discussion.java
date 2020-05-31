@@ -173,14 +173,6 @@ public class Discussion {
                 '}';
     }
 
-    /**
-     * <h2>getFileMessages</h2>
-     * @return la liste des messages
-     */
-    public ArrayList<Message> getFileMessages() {
-        return fileMessages;
-    }
-
     public Color getCouleur() {
         return couleur;
     }

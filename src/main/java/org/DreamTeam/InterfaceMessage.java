@@ -69,16 +69,20 @@ public class InterfaceMessage extends Parent {
 
     public void setInterfaceNewMessage(InterfaceNewMessage interfaceNewMessage) {
         this.interfaceNewMessage = interfaceNewMessage;
+    }
+    /*
     public void setColor(){
         rectangle.setFill(Color.color(Math.random(), Math.random(), Math.random()));
     }
-
+*/
     /**
      * Celle ci permettra de décaler l'interface agrandie ou rétrécie pour maintenir le coté droit.
      *Sachant cependant que je regarde un <a href = "https://o7planning.org/fr/10645/tutoriel-javafx-anchorpane-layout">Anchor Pane</a> pour voir si on ne peut pas faire les choses différement
      * @param addVal
      */
+    /*
     public void deplace(double addVal){
         rectangle.setTranslateX(addVal);
     }
+    */
 }

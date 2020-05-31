@@ -43,6 +43,9 @@ public class InterfaceNewMessage extends Parent {
     private SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
     private Date date;
 
+    public InterfaceNewMessage() {
+    }
+
     /**
      * <h2>Constructeur : InterfaceNewMessage </h2>
      * <p>Le contructeur de l'interface va créer une boite horizontale avec une champs de text ainsi qu'un bouton.
@@ -50,6 +53,8 @@ public class InterfaceNewMessage extends Parent {
      * @param disc objet Discussion, permettant de récupérer les listes de messages, membre et le titre.
      * @param util objet Utilisateur, permettant de récuperer le pseudo de l'utilisateur
      */
+
+
     public InterfaceNewMessage(Discussion disc, Utilisateur util){
         this.discussion = disc;
         this.utilisateur = util;

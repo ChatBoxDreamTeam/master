@@ -99,10 +99,10 @@ public class App extends Application {
         // définition des messages
         message1.setId(1);
         message1.setDate("2020-05-28");
-        message1.setAuthor(user1.getPseudo());
+        message1.setAuthor(user1);
         message1.setContent("Hello Homer Simpson");
         message2.setId(2);
-        message2.setAuthor(user2.getPseudo());
+        message2.setAuthor(user2);
         message2.setDate("2020-05-28");
         message2.setContent("Hello Stan Pines");
 
