@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -133,6 +134,14 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
     public void addMemberToDiscussion(InterfaceContact interfaceContact){
         Utilisateur utilisateur = null;
         this.ListeDiscussion.get(interfaceContact.getDiscussionId()).addMembre(utilisateur);
+    }
+
+    public void addMemberToDiscussion(InterfaceContact interfaceContact, TextField pseudo){
+        Utilisateur util = new Utilisateur(pseudo.getText());
+        Text Titre = interfaceContact.getDiscussionTitle();
+        Titre.setText(Titre.getText() + " " + pseudo.getText());
+        interfaceContact.setDiscussionTitle(Titre.getText());
+        this.ListeDiscussion.get(interfaceContact.getDiscussionId()).addMembre(util);
     }
 
     /**
