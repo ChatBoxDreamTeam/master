@@ -33,5 +33,3 @@ même PC ou sur différents PCs se trouvant dans le même sous-réseau.
 
 Il est impératif d’avoir dans l’équipe au moins un ordinateur sur lequel vous pouvez installer Eclipse ou un autre IDE
 avec les plug-ins JUnit, Maven et Git.
-
-### Documentation complete :
