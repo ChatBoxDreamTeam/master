@@ -186,7 +186,7 @@ public class InterfaceComplete extends Parent {
                 EventHandler<ActionEvent> ev = new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e)
                     {
-                        interDisc.addMemberToDiscussion(contacts[0]);
+                        interDisc.addMemberToDiscussion(contacts[0], pseudo);
                         dialog.close();
                     }
                 };
