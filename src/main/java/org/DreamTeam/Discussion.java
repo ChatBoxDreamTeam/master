@@ -1,17 +1,13 @@
 package org.DreamTeam;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import javafx.scene.image.Image;
-import javafx.scene.paint.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Writer;
-import java.lang.reflect.Array;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -27,12 +23,12 @@ import java.util.ArrayList;
  * Ce sera utile dans le programme principal pour vérifier si l'ajout de l'élément a fonctionné</p>
  */
 
-public class Discussion {
+public class Discussion implements Serializable {
 
     public String titre;
     public ArrayList<Utilisateur> listeMembres;
     public ArrayList<Message> fileMessages;
-    public ArrayList<DiscussionListener> listeners = new ArrayList<>();
+    public transient ArrayList<DiscussionListener> listeners = new ArrayList<>();
     public String couleurChat;
 
     public Discussion() {
@@ -117,7 +113,7 @@ public class Discussion {
      * Fonction qui exporte la discussion dans un fichier JSON.
      * @param filename nom du fichier JSON qui sera généré
      */
-    public void exportToJSON(String filename){
+    /*public void exportToJSON(String filename){
         try{
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Writer writer = Files.newBufferedWriter(Paths.get(filename));
@@ -126,7 +122,7 @@ public class Discussion {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * <h2>importFromJSON</h2>
@@ -195,5 +191,29 @@ public class Discussion {
             rep +=" "+u.getPseudo();
         }
         return rep;
+    }
+
+    public void setFileMessages(ArrayList<Message> fileMessages) {
+        this.fileMessages = fileMessages;
+    }
+
+    public ArrayList<DiscussionListener> getListeners() {
+        return listeners;
+    }
+
+    public void setListeners(ArrayList<DiscussionListener> listeners) {
+        this.listeners = listeners;
+    }
+
+    public void setListeMembres(ArrayList<Utilisateur> listeMembres) {
+        this.listeMembres = listeMembres;
+    }
+
+    public String getCouleurChat() {
+        return couleurChat;
+    }
+
+    public void setCouleurChat(String couleurChat) {
+        this.couleurChat = couleurChat;
     }
 }

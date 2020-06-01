@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -20,10 +21,10 @@ import java.util.ArrayList;
  */
 
 public class InterfaceContact extends Parent {
-    Rectangle rectangle;
-    Text discussionTitle;
-    int discussionId;
-    double height, width;
+    private Rectangle rectangle;
+    private Text discussionTitle;
+    private int discussionId;
+    private double height, width;
 
     /**
      * <p>Constructeur, créer un rectangle définissant la zone

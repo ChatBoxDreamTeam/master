@@ -1,5 +1,6 @@
 package org.DreamTeam;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,7 +17,7 @@ import java.util.Random;
  * </ul>
  * <p>Cette classe correspond à la représentation d'un utilisateur. Les fonctions présentes sont les getters et setters.</p>
  */
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 
     public String pseudo;
     public String couleurChat;
@@ -73,9 +74,9 @@ public class Utilisateur {
     public String toString() {
         return "Utilisateur{" +
                 "pseudo='" + pseudo + '\'' +
-                ", couleurChat='" + couleurChat + '\'';
+                ", couleurChat='" + couleurChat + '\'' +
+                '}';
     }
-
 
     /**
      * Methode de comparaison des prenom pour avoir une liste de contact trier par pseudo

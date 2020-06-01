@@ -1,5 +1,7 @@
 package org.DreamTeam;
 
+import java.io.Serializable;
+
 /**
  * <h1>Message</h1>
  * <h2>Attributs</h2>
@@ -11,7 +13,7 @@ package org.DreamTeam;
  * <p>Cette classe correspond à la description d'un message. Les différentes fonctions présentes sont les getters et
  * setters.</p>
  */
-public class Message {
+public class Message implements Serializable {
 
     public int id;
     public String content;

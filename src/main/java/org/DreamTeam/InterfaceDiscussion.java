@@ -67,12 +67,12 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
     /**
      * <p>Permet d'ajouter une nouvelle discussion à la liste
      * </p>
-     * @param o nouvel élément à ajouter
+     * @param d nouvel élément à ajouter
      */
     @Override
-    public void update(Object o) {
-        this.ListeDiscussion.add((Discussion) o);
-        this.newInterfaceContact(((Discussion) o).getListeMembres().get(0).getPseudo(), i);
+    public void update(Discussion d) {
+        this.ListeDiscussion.add(d);
+        this.newInterfaceContact(d.getListeMembres().get(0).getPseudo(), i);
         i = i+1;
     }
 
@@ -130,22 +130,12 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         refreshUI();
     }
 
-    /**
-     * <p> Permet d'ajouter un membre a la discussion en cours
-     * </p>
-     * @param interfaceContact discussions
-     */
+
     public void addMemberToDiscussion(InterfaceContact interfaceContact){
         Utilisateur utilisateur = null;
         this.ListeDiscussion.get(interfaceContact.getDiscussionId()).addMembre(utilisateur);
     }
 
-    /**
-     * <p> Permet d'ajouter un membre a la discussion en cours
-     * </p>
-     * @param interfaceContact discussions
-     * @param pseudo Champs remplie
-     */
     public void addMemberToDiscussion(InterfaceContact interfaceContact, TextField pseudo){
         Utilisateur util = new Utilisateur(pseudo.getText());
         Text Titre = interfaceContact.getDiscussionTitle();
@@ -159,7 +149,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
      * </p>
      */
     public void createDiscussion() {
-            newInterfaceContact("Discussion " + String.valueOf(i), i);
+        newInterfaceContact("Discussion " + String.valueOf(i), i);
         i = i +1;
     }
 
@@ -171,19 +161,15 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
     public void createDiscussion(String name) {
         Utilisateur util = new Utilisateur(name);
         Discussion disc = new Discussion(name, new ArrayList<Utilisateur>(Collections.singleton(util)), null, new ArrayList<DiscussionListener>(Collections.singleton(this)));
+        this.ListeDiscussion.add(disc);
         newInterfaceContact(""+name, i);
         i = i +1;
-        ListeDiscussion.add(disc);
     }
 
     public InterfaceContact getIc() {
         return ic;
     }
 
-    /**
-     * getter de la liste de discussion
-     * @return Liste de Discussion
-     */
     public ArrayList<Discussion> getListeDiscussion() {
         return ListeDiscussion;
     }

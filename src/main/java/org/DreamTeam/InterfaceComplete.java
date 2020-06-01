@@ -6,20 +6,18 @@ import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.io.*;
+import java.util.ArrayList;
 
 public class InterfaceComplete extends Parent {
 
@@ -47,6 +45,8 @@ public class InterfaceComplete extends Parent {
      * <p>Menu contextuel pour les options lors du clic droit</p>
      */
     final ContextMenu contactContextMenu, mainContextMenu;
+
+    ArrayList<Discussion> listeTest = new ArrayList<>();
 
     /**
      * <p>Methode permettant de changer la dimension de l'interface, dit "InterfaceComplete"
@@ -77,17 +77,9 @@ public class InterfaceComplete extends Parent {
         interDisc = new InterfaceDiscussion(getHeight(),pourcentageSeparation*getWidth());
 
         Discussion discussion;
-        try(Stream<Path> walk = Files.walk(Paths.get("src\\Discussions"))){
-            List<Path> paths = walk.filter(Files::isRegularFile).collect(Collectors.toList());
-            for(Path path : paths){
-                discussion = new Discussion();
-                discussion.addObserver(interDisc);
-                discussion.importFromJSON(path);
-            }
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+        importDiscussions();
 
+        System.out.println("blbl"+interDisc.getListeDiscussion());
         interMsg = new InterfaceMessage(this.height, this.width*(1-pourcentageSeparation), interDisc.getListeDiscussion().get(0));
         interMsg.setTranslateX(pourcentageSeparation*width);
 
@@ -223,5 +215,72 @@ public class InterfaceComplete extends Parent {
         for(Node node : interDisc.getInterfaceContactArrayList()){
             node.addEventFilter(MouseEvent.MOUSE_PRESSED, eventHandler);
         }
+    }
+
+    /**
+     * <h2>getInterMsg</h2>
+     * @return l'interface des messages
+     */
+    public InterfaceMessage getInterMsg() {
+        return interMsg;
+    }
+
+    /**
+     * <h2>getInterDisc</h2>
+     * @return l'interface de la liste des discussions
+     */
+    public InterfaceDiscussion getInterDisc() {
+        return interDisc;
+    }
+
+    /*public void exporterJSON(){
+        for(Discussion d : listeTest){
+            d.exportToJSON("src\\Discussions\\"+d.getListeMembres().get(0).getPseudo()+".json");
+        }
+    }*/
+
+    public void importDiscussions(){
+        ArrayList<Discussion> discussions = null;
+        try{
+            FileInputStream fileInputStream = new FileInputStream("src\\Discussions\\discussions.ser");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            discussions = (ArrayList<Discussion>) objectInputStream.readObject();
+            for(Discussion d : discussions){
+                interDisc.update(d);
+            }
+            //interDisc.setListeDiscussion(discussions);
+            objectInputStream.close();
+            fileInputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        } catch (ClassNotFoundException e) {
+            System.out.println("Discussion class not found.");
+            e.printStackTrace();
+            return;
+        }
+    }
+
+    public void exportDiscussions(ArrayList<Discussion> discussions){
+        try{
+            System.out.println(discussions);
+            FileOutputStream fileOutputStream = new FileOutputStream("src\\Discussions\\discussions.ser");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(discussions);
+            objectOutputStream.close();
+            fileOutputStream.close();
+            System.out.println("Serialized data");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Discussion> getListeTest() {
+        return listeTest;
     }
 }

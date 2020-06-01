@@ -1,5 +1,6 @@
 package org.DreamTeam;
 
+import com.google.gson.GsonBuilder;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
@@ -8,6 +9,7 @@ import javafx.stage.Stage;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Writer;
 import java.lang.reflect.Array;
 import java.nio.file.*;
 import java.util.ArrayList;
@@ -26,7 +28,8 @@ import java.util.stream.Stream;
  */
 
 public class App extends Application {
-
+    InterfaceComplete interfaceC;
+    public ArrayList<Discussion> listeDiscussions = new ArrayList<>();
     /**
      * <h2>start</h2>
      * <p>Démarre le stage avec la scène pour JavaFX</p>
@@ -34,17 +37,18 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) {
+        System.out.println("Démarrage de l'application");
 
         Group root = new Group();
         var scene = new Scene(root, 640, 480);
 
-        InterfaceComplete interfaceC = new InterfaceComplete(scene.getHeight(), scene.getWidth());
+        interfaceC = new InterfaceComplete(scene.getHeight(), scene.getWidth());
         root.getChildren().add(interfaceC);
 
         interfaceC.createContextMenu();
         stage.setScene(scene);
         stage.show();
-
+        System.out.println(listeDiscussions);
         ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) -> {
             interfaceC.changeSize(stage.getHeight(), stage.getWidth());
             if (stage.getHeight()<234.0f) stage.setHeight(234.0f);
@@ -52,6 +56,15 @@ public class App extends Application {
 
         stage.widthProperty().addListener(stageSizeListener);
         stage.heightProperty().addListener(stageSizeListener);
+    }
+
+    @Override
+    public void stop() throws Exception {
+        System.out.println("Arrêt de l'application. Exportation des discussions dans un fichier JSON.");
+        interfaceC.exportDiscussions(interfaceC.getInterDisc().getListeDiscussion());
+        //exportJSON();
+        //exportJSON(listeDiscussions);
+        super.stop();
     }
 
     /**
@@ -62,7 +75,7 @@ public class App extends Application {
     public void importJSON(){
         // Définit la liste des utilisateurs
         ArrayList<Utilisateur> listeUtilisateurs = new ArrayList<>();
-        ArrayList<Discussion> listeDiscussions = new ArrayList<>();
+
         ArrayList<InterfaceContact> interfaceContactArrayList = new ArrayList<>();
         /*
          Le try/catch/finally suivant va lire des discussions présentes dans des fichiers JSON dans le dossier Discussions.
@@ -95,17 +108,17 @@ public class App extends Application {
      */
     public void exportJSON(){
         // PARTIE EXPORTATION DE JSON
-        /*Discussion discussion = new Discussion();
+        Discussion discussion = new Discussion();
         Utilisateur user1 = new Utilisateur();
         Utilisateur user2 = new Utilisateur();
         Message message1 = new Message();
         Message message2 = new Message();
 
         // définition des utilisateurs
-        user1.setPseudo("Stan Pines");
-        user2.setPseudo("Homer Simpson");
-        user1.setCouleurChat("green");
-        user2.setCouleurChat("blue");
+        user1.setPseudo("Marco Lucchini");
+        user2.setPseudo("Luigi");
+        user1.setCouleurChat("22BABA");
+        user2.setCouleurChat("41DE77");
 
         // définition des messages
         message1.setId(1);
@@ -123,8 +136,9 @@ public class App extends Application {
         discussion.addMessage(message1);
         discussion.addMessage(message2);
         discussion.setTitre("Discussion test");
-        discussion.exportToJSON("src\\Discussions\\Stan_Pines.json");*/
+        //discussion.exportToJSON("src\\Discussions\\"+user1.getPseudo()+".json");
     }
+
 
     public static void main(String[] args) {
         launch();

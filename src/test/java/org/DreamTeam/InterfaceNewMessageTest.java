@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class InterfaceNewMessageTest extends Application {
     private Discussion discussion;
     private HBox hBox;
@@ -30,7 +28,7 @@ class InterfaceNewMessageTest extends Application {
     public void start(Stage s) {
 
         s.setTitle("Test NewMessage");
-        int dernièreValeur = discussion.getFileMessages().size();
+        int derniereValeur = discussion.getFileMessages().size();
         button = new Button("Send");
         textMessage = new TextField();
         this.hBox = new HBox();
@@ -42,7 +40,7 @@ class InterfaceNewMessageTest extends Application {
                 sendMessage.setAuthor(utilisateur);
                 sendMessage.setContent(textMessage.getText());
                 sendMessage.setDate(formatter.format(date));
-                sendMessage.setId(dernièreValeur+1);
+                sendMessage.setId(derniereValeur +1);
                 discussion.addMessage(sendMessage);
             }
         };
