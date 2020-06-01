@@ -154,6 +154,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         Discussion disc = new Discussion(name, new ArrayList<Utilisateur>(Collections.singleton(util)), null, new ArrayList<DiscussionListener>(Collections.singleton(this)));
         newInterfaceContact(""+name, i);
         i = i +1;
+        ListeDiscussion.add(disc);
     }
 
     public InterfaceContact getIc() {

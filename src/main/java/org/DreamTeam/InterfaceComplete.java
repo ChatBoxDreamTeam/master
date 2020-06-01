@@ -73,8 +73,7 @@ public class InterfaceComplete extends Parent {
         this.height=height;
         this.width=width;
 
-        interMsg = new InterfaceMessage(getHeight(),(1-pourcentageSeparation)*getWidth());
-        interMsg.setTranslateX(pourcentageSeparation*width);
+
         interDisc = new InterfaceDiscussion(getHeight(),pourcentageSeparation*getWidth());
 
         Discussion discussion;
@@ -88,6 +87,9 @@ public class InterfaceComplete extends Parent {
         } catch(IOException e){
             e.printStackTrace();
         }
+
+        interMsg = new InterfaceMessage(this.height, this.width*(1-pourcentageSeparation), interDisc.getListeDiscussion().get(0));
+        interMsg.setTranslateX(pourcentageSeparation*width);
 
         this.getChildren().addAll(interDisc, interMsg);
 
@@ -156,7 +158,6 @@ public class InterfaceComplete extends Parent {
                 EventHandler<ActionEvent> ev = new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e)
                     {
-                        interDisc.createDiscussion(pseudo.getText());
                         updateBehavior(eventHandler);
                         dialog.close();
                     }

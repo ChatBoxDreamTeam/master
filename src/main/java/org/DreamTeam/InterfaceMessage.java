@@ -30,12 +30,29 @@ public class InterfaceMessage extends Parent {
     private double height,width;
     private double endTitle=30.0f,startNewMessage = 50.f;
 
-    public InterfaceMessage(double height, double width) {
+    /*public InterfaceMessage(double height, double width) {
         this.height=height;
         this.width=width;
+    }*/
+
+    public InterfaceMessage() {
     }
 
     public InterfaceMessage(double height, double width, Discussion discussion) {
+        this.height=height;
+        this.width=width;
+        this.discussion=discussion;
+        //interfaceMessageEnTete = new InterfaceMessageEnTete(discussion.getListeMembresToString(),Color.web(discussion.getCouleur()),endTitle,this.width);
+        interfaceMessageEnTete = new InterfaceMessageEnTete(discussion.getListeMembresToString(),Color.LIGHTBLUE,this.width,endTitle);
+        interfaceListeMessage = new InterfaceListeMessage(discussion,this.height-(endTitle+startNewMessage),this.width);
+        //interfaceNewMessage = new InterfaceNewMessage(discussion,);//TODO mettre l'utilisateur lui même, c'est comme ça que Mathieu a créé son constructeur
+        interfaceNewMessage = new InterfaceNewMessage(discussion);
+        interfaceListeMessage.setTranslateY(endTitle);
+        interfaceNewMessage.setTranslateY(this.height-startNewMessage);
+        this.getChildren().addAll(interfaceMessageEnTete,interfaceListeMessage, interfaceNewMessage);
+    }
+
+    /*public InterfaceMessage(double height, double width) {
         //interfaceMessageEnTete = new InterfaceMessageEnTete(discussion.getListeMembresToString(),Color.web(discussion.getCouleur()),endTitle,this.width);
         interfaceMessageEnTete = new InterfaceMessageEnTete(discussion.getListeMembresToString(),Color.LIGHTBLUE,endTitle,this.width);
         interfaceListeMessage = new InterfaceListeMessage(discussion,this.width,this.height-(endTitle+startNewMessage));
@@ -49,7 +66,7 @@ public class InterfaceMessage extends Parent {
         Label tempLbl = new Label("test");
         System.out.println(tempLbl.getText());
         this.getChildren().addAll(interfaceMessageEnTete,interfaceListeMessage, interfaceNewMessage,tempLbl);
-    }
+    }*/
 
     public InterfaceListeMessage getInterfaceListeMessage() {
         return interfaceListeMessage;

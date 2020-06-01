@@ -3,6 +3,7 @@ package org.DreamTeam;
 import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Random;
 
 /**
  * <h1>Utilisateur</h1>
@@ -25,7 +26,7 @@ public class Utilisateur {
 
     public Utilisateur(String pseudo) {
         this.pseudo = pseudo;
-        this.couleurChat = "49AA31";
+        this.couleurChat = randomColor();
     }
 
     public Utilisateur(String pseudo, String color) {
@@ -117,5 +118,11 @@ public class Utilisateur {
         if (str == null) return false;
         Matcher m = p.matcher(str);
         return m.matches();
+    }
+
+    private String randomColor() {
+        Random obj = new Random();
+        int rand_num = obj.nextInt(0xffffff + 1);
+        return String.format("#%06x", rand_num);
     }
 }
