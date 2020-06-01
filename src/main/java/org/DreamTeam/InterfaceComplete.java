@@ -158,6 +158,7 @@ public class InterfaceComplete extends Parent {
                     {
                         interDisc.createDiscussion(pseudo.getText());
                         updateBehavior(eventHandler);
+                        dialog.close();
                     }
                 };
                 button.setOnAction(ev);
@@ -185,6 +186,7 @@ public class InterfaceComplete extends Parent {
                     public void handle(ActionEvent e)
                     {
                         interDisc.addMemberToDiscussion(contacts[0]);
+                        dialog.close();
                     }
                 };
                 button.setOnAction(ev);
