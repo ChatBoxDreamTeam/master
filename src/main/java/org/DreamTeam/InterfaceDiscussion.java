@@ -130,12 +130,22 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         refreshUI();
     }
 
-
+    /**
+     * <p> Permet d'ajouter un membre a la discussion en cours
+     * </p>
+     * @param interfaceContact discussions
+     */
     public void addMemberToDiscussion(InterfaceContact interfaceContact){
         Utilisateur utilisateur = null;
         this.ListeDiscussion.get(interfaceContact.getDiscussionId()).addMembre(utilisateur);
     }
 
+    /**
+     * <p> Permet d'ajouter un membre a la discussion en cours
+     * </p>
+     * @param interfaceContact discussions
+     * @param pseudo Champs remplie
+     */
     public void addMemberToDiscussion(InterfaceContact interfaceContact, TextField pseudo){
         Utilisateur util = new Utilisateur(pseudo.getText());
         Text Titre = interfaceContact.getDiscussionTitle();
@@ -149,7 +159,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
      * </p>
      */
     public void createDiscussion() {
-        newInterfaceContact("Discussion " + String.valueOf(i), i);
+            newInterfaceContact("Discussion " + String.valueOf(i), i);
         i = i +1;
     }
 
@@ -170,6 +180,10 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         return ic;
     }
 
+    /**
+     * getter de la liste de discussion
+     * @return Liste de Discussion
+     */
     public ArrayList<Discussion> getListeDiscussion() {
         return ListeDiscussion;
     }
