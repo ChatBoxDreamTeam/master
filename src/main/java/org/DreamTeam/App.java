@@ -21,7 +21,7 @@ import java.util.stream.Stream;
  *
  * <p>pour l'utilisation des tags de javaDocs, liens pour les tags : <a href="https://idratherbewriting.com/java-javadoc-tags/">ici</a></p>
  * <p>pour l'ordre d'utilisation dee ces tags, lien documentation : <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#tag">ici</a></p>
- * <p>Utilise java nio pour parcourir le repertoire des discussions et cree chaque utilisateur en fonction des discussions</p>
+ * <p>Utilise {@link java.nio} pour parcourir le repertoire des discussions et cree chaque utilisateur en fonction des discussions</p>
  *
  */
 
@@ -51,14 +51,16 @@ public class App extends Application {
         stage.heightProperty().addListener(stageSizeListener);
     }
 
-    public static void main(String[] args) {
-
+    /**
+     * <h2>importJSON</h2>
+     * <p>Fonction qui permet de récupérer des fichiers JSON depuis un dossier et va les importer à l'aide de la
+     * librairie GSON et les ajouter à des {@link ArrayList}.</p>
+     */
+    public void importJSON(){
         // Définit la liste des utilisateurs
         ArrayList<Utilisateur> listeUtilisateurs = new ArrayList<>();
         ArrayList<Discussion> listeDiscussions = new ArrayList<>();
         ArrayList<InterfaceContact> interfaceContactArrayList = new ArrayList<>();
-        launch();
-
         /*
          Le try/catch/finally suivant va lire des discussions présentes dans des fichiers JSON dans le dossier Discussions.
          Pour chaque fichier JSON, le programme va les parser avec Files.walk et BufferedReader.
@@ -81,7 +83,14 @@ public class App extends Application {
         for(Discussion d : listeDiscussions){
             System.out.println(d);
         }*/
+    }
 
+    /**
+     * <h2>exportJSON</h2>
+     * <p>Fonction qui permet d'écrire dans un fichier JSON une discussion. Il suffit uniquement de créer un nouvel
+     * objet de type {@link Discussion} et de remplir les différents attributs.</p>
+     */
+    public void exportJSON(){
         // PARTIE EXPORTATION DE JSON
         /*Discussion discussion = new Discussion();
         Utilisateur user1 = new Utilisateur();
@@ -112,5 +121,9 @@ public class App extends Application {
         discussion.addMessage(message2);
         discussion.setTitre("Discussion test");
         discussion.exportToJSON("src\\Discussions\\Stan_Pines.json");*/
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }

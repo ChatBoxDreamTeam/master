@@ -114,8 +114,6 @@ public class InterfaceComplete extends Parent {
      * <p>Fonction qui crée le menu contextuel, les options de ce menu et les actions associées.</p>
      */
     public void createContextMenu() {
-        this.contactContextMenu.setOnShowing(event -> System.out.println("showing"));
-        this.contactContextMenu.setOnShown(event -> System.out.println("shown"));
         final InterfaceContact[] contacts = {null};
         EventHandler<MouseEvent> eventHandler = event -> {
             contacts[0] = (InterfaceContact) event.getSource();

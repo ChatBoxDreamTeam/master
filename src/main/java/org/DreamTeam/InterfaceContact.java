@@ -15,6 +15,7 @@ import java.util.ArrayList;
  *     <li>discussionTitle : Text (Représente le nom de la discussion)</li>
  *     <li>height : double (Dimension du rectangle pour l'image)</li>
  *     <li>width : double (Dimension du rectangle pour l'image)</li>
+ *     <li>discussionId : int (ID de la discussion)</li>
  * </ul>
  */
 

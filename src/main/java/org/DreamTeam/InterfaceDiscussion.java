@@ -49,7 +49,6 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         }
     }
 
-
     /**
      * <p>Permet de redimensionner le rectangle (l'interface)
      * </p>
@@ -59,7 +58,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
     public void resize(double height, double width){
         rectangle.setHeight(height);
         rectangle.setWidth(width);
-        //deplace(width);
+
     }
 
     /**
@@ -127,6 +126,7 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
         i = i - 1;
         refreshUI();
     }
+
 
     public void addMemberToDiscussion(InterfaceContact interfaceContact){
         Utilisateur utilisateur = null;

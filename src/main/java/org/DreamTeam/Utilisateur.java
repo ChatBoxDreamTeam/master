@@ -101,6 +101,13 @@ public class Utilisateur {
             return ContactColor1.compareTo(ContactColor2);
         }
     };
+
+    /**
+     * <h2>isValidHexaCode</h2>
+     * <p>Fonction qui permet de vérifier si la chaine de caractères est un code hexadécimal valide.</p>
+     * @param str chaîne de caractères à vérifier
+     * @return la chaine de caractères vérifiée
+     */
     public static boolean isValidHexaCode(String str)
     {
         String regex = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";

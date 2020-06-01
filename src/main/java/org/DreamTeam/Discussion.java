@@ -19,8 +19,8 @@ import java.util.ArrayList;
  * <h2>Attributs</h2>
  * <ul>
  *     <li>titre : String (titre de la discussion)</li>
- *     <li>listeMembres : ArrayList (liste des membres de la discussion)</li>
- *     <li>fileMessages : ArrayList (liste des messages présents dans la discussion)</li>
+ *     <li>listeMembres : {@link ArrayList<Utilisateur>} (liste des membres de la discussion)</li>
+ *     <li>fileMessages : {@link ArrayList<Message>} (liste des messages présents dans la discussion)</li>
  * </ul>
  * <p>Le constructeur ne fait rien mais la classe dispose de getters et setters pour définir les caractéristiques de la discussion.</p>
  * <p>Les fonctions qui permettent d'ajouter des membres et des messages retournent un booléen.
@@ -123,7 +123,7 @@ public class Discussion {
     /**
      * <h2>importFromJSON</h2>
      * Fonction qui importe la discussion depuis un fichier JSON.
-     * @TODO TROUVER UN MOYEN DE SIMPLIFIER L'IMPORT
+     * TODO TROUVER UN MOYEN DE SIMPLIFIER L'IMPORT
      * @param filename nom du fichier JSON à importer
      */
     public void importFromJSON(Path filename){
