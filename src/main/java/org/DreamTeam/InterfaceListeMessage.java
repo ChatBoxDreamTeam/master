@@ -24,7 +24,7 @@ public class InterfaceListeMessage extends Parent {
         discussion=disc;
         scrollPane = new ScrollPane();
         scrollPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-        scrollPane.setPrefWidth(10.0f);
+        scrollPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
         scrollPane.setTranslateX(this.width-scrollPane.getPrefWidth());
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
