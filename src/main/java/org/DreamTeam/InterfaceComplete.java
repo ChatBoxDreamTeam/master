@@ -141,10 +141,36 @@ public class InterfaceComplete extends Parent {
             interDisc.deleteDiscussion(contacts[0]);
         });
         MenuItem item2 = new MenuItem("Create discussion");
-        item2.setOnAction(event -> {
+        /*item2.setOnAction(event -> {
             interDisc.createDiscussion();
             updateBehavior(eventHandler);
+        });*/
+        item2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                final Stage dialog = new Stage();
+                Button button = new Button("Validate");
+                TextField pseudo  = new TextField();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                VBox dialogVbox = new VBox(10);
+                EventHandler<ActionEvent> ev = new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e)
+                    {
+                        interDisc.createDiscussion(pseudo.getText());
+                        updateBehavior(eventHandler);
+                    }
+                };
+                button.setOnAction(ev);
+                pseudo.setOnAction(ev);
+                dialogVbox.getChildren().add(new Text("Pseudo : "));
+                dialogVbox.getChildren().add(pseudo);
+                dialogVbox.getChildren().add(button);
+                Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                dialog.setScene(dialogScene);
+                dialog.show();
+            }
         });
+
         MenuItem item3 = new MenuItem("Add member");
         //item3.setOnAction(event -> interDisc.addMemberToDiscussion(contacts[0]));
         item3.setOnAction(new EventHandler<ActionEvent>() {

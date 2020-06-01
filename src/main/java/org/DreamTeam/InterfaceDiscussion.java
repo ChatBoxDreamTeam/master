@@ -2,10 +2,12 @@ package org.DreamTeam;
 
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * <h1>InterfaceDiscussion</h1>
@@ -148,6 +150,8 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
      * @param name Permet de donner un nom à une discussion
      */
     public void createDiscussion(String name) {
+        Utilisateur util = new Utilisateur(name);
+        Discussion disc = new Discussion(name, new ArrayList<Utilisateur>(Collections.singleton(util)), null, new ArrayList<DiscussionListener>(Collections.singleton(this)));
         newInterfaceContact(""+name, i);
         i = i +1;
     }

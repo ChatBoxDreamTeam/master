@@ -41,6 +41,14 @@ public class Discussion {
         if (!listeMembres.isEmpty())couleurChat = listeMembres.get(0).getCouleurChat();
     }
 
+    public Discussion(String titre, ArrayList<Utilisateur> listeMembres, ArrayList<Message> fileMessages, ArrayList<DiscussionListener> listeners) {
+        this.titre = titre;
+        this.listeMembres = listeMembres;
+        this.fileMessages = fileMessages;
+        this.listeners = listeners;
+        this.couleurChat = listeMembres.get(0).getCouleurChat();
+    }
+
     /**
      * <h2>getTitre</h2>
      * @return le titre de la discussion
