@@ -1,12 +1,20 @@
 package org.DreamTeam;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -139,7 +147,32 @@ public class InterfaceComplete extends Parent {
             updateBehavior(eventHandler);
         });
         MenuItem item3 = new MenuItem("Add member");
-        item3.setOnAction(event -> interDisc.addMemberToDiscussion(contacts[0]));
+        //item3.setOnAction(event -> interDisc.addMemberToDiscussion(contacts[0]));
+        item3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                final Stage dialog = new Stage();
+                Button button = new Button("Validate");
+                TextField pseudo  = new TextField();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                VBox dialogVbox = new VBox(10);
+                EventHandler<ActionEvent> ev = new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e)
+                    {
+                        interDisc.addMemberToDiscussion(contacts[0]);
+                    }
+                };
+                button.setOnAction(ev);
+                pseudo.setOnAction(ev);
+                dialogVbox.getChildren().add(new Text("Pseudo : "));
+                dialogVbox.getChildren().add(pseudo);
+                dialogVbox.getChildren().add(button);
+                Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                dialog.setScene(dialogScene);
+                dialog.show();
+            }
+        });
+
         contactContextMenu.getItems().addAll(item1, item3);
         mainContextMenu.getItems().add(item2);
 
