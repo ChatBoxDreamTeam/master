@@ -155,4 +155,8 @@ public class InterfaceDiscussion extends Parent implements DiscussionListener {
     public InterfaceContact getIc() {
         return ic;
     }
+
+    public ArrayList<Discussion> getListeDiscussion() {
+        return ListeDiscussion;
+    }
 }

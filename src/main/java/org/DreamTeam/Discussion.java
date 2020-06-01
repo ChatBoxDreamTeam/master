@@ -180,4 +180,12 @@ public class Discussion {
     public void setCouleur(String couleur) {
         this.couleurChat = couleur;
     }
+
+    public String getListeMembresToString(){
+        String rep=null;
+        for (Utilisateur u:listeMembres) {
+            rep +=" "+u.getPseudo();
+        }
+        return rep;
+    }
 }

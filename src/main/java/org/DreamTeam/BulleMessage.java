@@ -22,6 +22,7 @@ public class BulleMessage extends Parent {
         auth.setStyle("-fx-font-weight: bold");
         Text cont = new Text(content);
 
+        this.lbl = new TextFlow();
         lbl.getChildren().addAll(auth,cont);
         lbl.setPrefSize( Double.MAX_VALUE, Double.MIN_VALUE);
         this.getChildren().add(lbl);

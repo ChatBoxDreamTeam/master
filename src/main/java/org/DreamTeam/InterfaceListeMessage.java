@@ -18,14 +18,14 @@ public class InterfaceListeMessage extends Parent {
     private Discussion discussion;
     private VBox vbox;
     private ScrollPane scrollPane;
+    private double width,height;
 
-    public InterfaceListeMessage(){}
-
-    public InterfaceListeMessage(Discussion disc){
+    public InterfaceListeMessage(Discussion disc,double width,double height){
         discussion=disc;
         scrollPane = new ScrollPane();
         scrollPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-        scrollPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        scrollPane.setPrefWidth(10.0f);
+        scrollPane.setTranslateX(this.width-scrollPane.getPrefWidth());
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         vbox = new VBox();
@@ -36,5 +36,9 @@ public class InterfaceListeMessage extends Parent {
         for (Message m:discussion.getFileMessages()){
             vbox.getChildren().add(new BulleMessage(m.getAuthor(),m.getContent()));
         }
+        this.width=width;
+        this.height=height;
+        resize(this.width,this.height);
+        this.getChildren().addAll(vbox,scrollPane);
     }
 }

@@ -6,10 +6,7 @@ import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -91,8 +88,9 @@ public class InterfaceComplete extends Parent {
         } catch(IOException e){
             e.printStackTrace();
         }
-        
+
         this.getChildren().addAll(interDisc, interMsg);
+
         
         contactContextMenu = new ContextMenu();
         mainContextMenu = new ContextMenu();
@@ -131,6 +129,7 @@ public class InterfaceComplete extends Parent {
                     ic.unselectedContact();
                 }
                 contacts[0].selectedContact();
+                interMsg = new InterfaceMessage(getHeight(),(1-pourcentageSeparation)*getWidth(), interDisc.getListeDiscussion().get(contacts[0].getDiscussionId()-1));
             } else if(event.isSecondaryButtonDown()){
                 contactContextMenu.show(event.getPickResult().getIntersectedNode(), Side.BOTTOM, 0, 0);
             }

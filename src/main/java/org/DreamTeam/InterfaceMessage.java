@@ -23,37 +23,32 @@ import javafx.scene.text.Text;
 
 public class InterfaceMessage extends Parent {
 
-
-    private InterfaceListeMessage HPan;
-    private SplitPane sp;
     private InterfaceMessageEnTete interfaceMessageEnTete;
     private InterfaceListeMessage interfaceListeMessage;
     private InterfaceNewMessage interfaceNewMessage;
+    private Discussion discussion;
+    private double height,width;
+    private double endTitle=30.0f,startNewMessage = 50.f;
 
     public InterfaceMessage(double height, double width) {
-        sp = new SplitPane();
-        sp.orientationProperty().setValue(Orientation.HORIZONTAL);
-        interfaceListeMessage = new InterfaceListeMessage();
-        interfaceNewMessage = new InterfaceNewMessage();
-        sp.setDividerPosition(1,0.8f);
-        sp.getItems().addAll(interfaceListeMessage, interfaceNewMessage);
+        this.height=height;
+        this.width=width;
     }
 
-
-    public InterfaceListeMessage getHPan() {
-        return HPan;
-    }
-
-    public void setHPan(InterfaceListeMessage HPan) {
-        this.HPan = HPan;
-    }
-
-    public SplitPane getSp() {
-        return sp;
-    }
-
-    public void setSp(SplitPane sp) {
-        this.sp = sp;
+    public InterfaceMessage(double height, double width, Discussion discussion) {
+        //interfaceMessageEnTete = new InterfaceMessageEnTete(discussion.getListeMembresToString(),Color.web(discussion.getCouleur()),endTitle,this.width);
+        interfaceMessageEnTete = new InterfaceMessageEnTete(discussion.getListeMembresToString(),Color.LIGHTBLUE,endTitle,this.width);
+        interfaceListeMessage = new InterfaceListeMessage(discussion,this.width,this.height-(endTitle+startNewMessage));
+        //interfaceNewMessage = new InterfaceNewMessage(discussion,);//TODO mettre l'utilisateur lui même, c'est comme ça que Mathieu a créé son constructeur
+        interfaceNewMessage = new InterfaceNewMessage(discussion);
+        interfaceListeMessage.setTranslateY(endTitle);
+        interfaceNewMessage.setTranslateY(this.height-startNewMessage);
+        this.height=height;
+        this.width=width;
+        this.discussion=discussion;
+        Label tempLbl = new Label("test");
+        System.out.println(tempLbl.getText());
+        this.getChildren().addAll(interfaceMessageEnTete,interfaceListeMessage, interfaceNewMessage,tempLbl);
     }
 
     public InterfaceListeMessage getInterfaceListeMessage() {
@@ -71,6 +66,15 @@ public class InterfaceMessage extends Parent {
     public void setInterfaceNewMessage(InterfaceNewMessage interfaceNewMessage) {
         this.interfaceNewMessage = interfaceNewMessage;
     }
+
+    @Override
+    public void resize(double v, double v1) {
+        super.resize(v, v1);
+        this.height=v1;
+        this.width=v;
+        // TODO resize();
+    }
+
     /*
     public void setColor(){
         rectangle.setFill(Color.color(Math.random(), Math.random(), Math.random()));

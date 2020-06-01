@@ -45,8 +45,11 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
 
-        ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) ->
-                interfaceC.changeSize(stage.getHeight(), stage.getWidth());
+        ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) -> {
+            interfaceC.changeSize(stage.getHeight(), stage.getWidth());
+            if (stage.getHeight()<234.0f) stage.setHeight(234.0f);
+            if (stage.getWidth()<526.0f) stage.setWidth(526.0f);};
+
         stage.widthProperty().addListener(stageSizeListener);
         stage.heightProperty().addListener(stageSizeListener);
     }

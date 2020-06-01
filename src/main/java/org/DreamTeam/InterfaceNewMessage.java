@@ -37,9 +37,6 @@ public class InterfaceNewMessage extends Parent {
     private SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
     private Date date;
 
-    public InterfaceNewMessage() {
-    }
-
     /**
      * <h2>Constructeur : InterfaceNewMessage </h2>
      * <p>Le contructeur de l'interface va créer une boite horizontale avec une champs de text ainsi qu'un bouton.
@@ -49,9 +46,35 @@ public class InterfaceNewMessage extends Parent {
      */
 
 
-    public InterfaceNewMessage(Discussion disc, Utilisateur util){
+    /*public InterfaceNewMessage(Discussion disc, Utilisateur util){
         this.discussion = disc;
         this.utilisateur = util;
+        int derniereValeur = discussion.getFileMessages().size();
+        button = new Button("Send");
+        textMessage = new TextField();
+        this.hBox = new HBox();
+        this.hBox.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        this.hBox.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                sendMessage= setSendMessage(utilisateur, textMessage, derniereValeur);
+                discussion.addMessage(sendMessage);
+            }
+        };
+
+        textMessage.setOnAction(event);
+        button.setOnAction(event);
+
+        hBox.getChildren().add(textMessage);
+        hBox.getChildren().add(button);
+        this.getChildren().add(hBox);
+
+    }*/
+
+    public InterfaceNewMessage(Discussion disc){
+        this.discussion = disc;
+        this.utilisateur = new Utilisateur("Patrice de Mac-Mahon");
         int derniereValeur = discussion.getFileMessages().size();
         button = new Button("Send");
         textMessage = new TextField();
