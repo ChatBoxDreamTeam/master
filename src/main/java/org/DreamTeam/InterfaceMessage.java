@@ -26,6 +26,7 @@ public class InterfaceMessage extends Parent {
 
     private InterfaceListeMessage HPan;
     private SplitPane sp;
+    private InterfaceMessageEnTete interfaceMessageEnTete;
     private InterfaceListeMessage interfaceListeMessage;
     private InterfaceNewMessage interfaceNewMessage;
 
